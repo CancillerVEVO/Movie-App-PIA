@@ -17,4 +17,12 @@ function Error(message) {
     `;
 }
 
-export { Movie, Error };
+function GenreListItem(name){
+  return `
+    <p>
+        ${name}
+    </p>
+  `;
+}
+
+export { Movie, Error, GenreListItem };

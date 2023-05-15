@@ -1,6 +1,6 @@
 import { movieApi } from "../../movieAPI/movieApi.js";
 
-const getMovieById = async (id) => {
+async function getMovieById(id) {
   try {
     const response = await movieApi.get("movies/" + id);
     return response.data;
@@ -10,6 +10,14 @@ const getMovieById = async (id) => {
   }
 };
 
-async function listPopularMovies(page) {}
+async function getMovieGenres() {
+  try {
+    const response = await movieApi.get("movies/genres");
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data.message);
+    throw new Error(error.response.data.message);
+  }
+}
 
-export { getMovieById };
+export { getMovieById, getMovieGenres };

@@ -1,0 +1,35 @@
+@media (max-width: 767px) {
+    .navbar-brand {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 50%;
+    }
+  }
+
+
+  .btn-bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 20px;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 800px;
+  }
+
+  .caja-texto {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }

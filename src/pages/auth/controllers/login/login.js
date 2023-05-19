@@ -1,4 +1,4 @@
-import {login} from "./auth.api"
+import {login} from "../auth.api"
 import Cookies from "js-cookie";
 
 const loginForm = document.getElementById("login-form");

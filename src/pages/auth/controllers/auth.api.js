@@ -1,5 +1,5 @@
-import { getApiError  } from "../../../utils/getApiError";
-import { movieApi} from "../../../api/movieApi";
+import { getApiError  } from "@/utils/getApiError";
+import { movieApi} from "@/api/movieApi";
 
 export async function register({
   nombre,

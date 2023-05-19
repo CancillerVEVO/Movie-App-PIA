@@ -1,4 +1,4 @@
-import { getMovieById, getMovieGenres } from "./detail.api";
+import { getMovieById, getMovieGenres } from "./detail.api.js";
 import { Movie, Error, GenreListItem } from "./detail.components.js";
 
 const input = document.getElementsByTagName("input")[0];
@@ -19,10 +19,6 @@ generos.addEventListener("click", async () => {
       listItem.innerHTML = GenreListItem(element);
       generoContenedor.append(listItem);
     });
-
-    // const listItem = document.createElement("li");
-    // listItem.innerHTML = GenreListItem(genreNames);
-    // generoContenedor.append(listItem);
   } catch (error) {
     const errorHTML = document.createElement("div");
     errorHTML.innerHTML = Error(error.message);

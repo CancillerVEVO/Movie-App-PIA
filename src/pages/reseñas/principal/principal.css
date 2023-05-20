@@ -1,0 +1,58 @@
+/*ESTILOS PARA MOSTRAR OPCIONES*/
+#reviewsSection{
+    display: none;
+}
+.card movie-card {
+    width: 120px;
+}
+
+.active-btn {
+    background-color: #4f555c !important;
+}
+
+.movie-card {
+    margin-bottom: 20px;
+}
+
+/*Estilos para Seccion de peliculas*/
+#posterPathMovies{
+    width: 150px;
+}
+/*Estilos para Seccion de reseñas*/
+#posterPathReseña{
+    width: 100%;
+}
+/*ESTILOS PARA MARCAR ESTRELLAS SELECCIONADA*/
+
+#estrellas-form {
+    width: 250px;
+    /*margin: 0 auto;*//*PARA CENTRAR LAS ESTRELLAS*/
+    height: 50px;
+}
+
+#estrellas-form p {
+    text-align: center;
+}
+
+#estrellas-form label {
+    font-size: 30px;
+}
+
+#estrellas-form input[type="radio"] {
+    display: none;
+}
+
+#estrellas-form label {
+    color: grey;
+    cursor: default;
+    /* Evita que el cursor cambie al pasar sobre las estrellas */
+}
+
+#estrellas-form  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+#estrellas-form  input[type="radio"]:checked~label {
+    color: orange;
+}

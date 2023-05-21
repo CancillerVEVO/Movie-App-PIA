@@ -19,7 +19,7 @@ loginForm.addEventListener("submit", async (e) => {
     Cookies.set("token", response.data.token);
 
     loginForm.reset(); // Reinicia el formulario
-    window.location.href = "/";
+    window.location.href = "../reseñas/principal.html";
   } catch (error) {
     if (error.name === "ValidationError") {
       const errorMessages = error.data.map((error) => {

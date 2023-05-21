@@ -15,6 +15,8 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!--SESSION CHECK-->
+    <script src="../auth/controllers/session.check.js"></script>
 </head>
 
 <body>
@@ -37,83 +39,21 @@
 
         <!-- Sección de Películas -->
         <div id="moviesSection">
-            <div id="error-de-extraccion" class="container"></div>
+            <div id="error-de-extraccion-peliculas" class="container"></div>
             <div id="movies-Cards" class="row">
                 <!-- INICIO DE CARD de Películas -->
                 <!-- FIN DE CARD de Películas -->
             </div>
             <!-- Contenedor para paginacion-->
             <div id="paginacion-peliculas"></div>
-
         </div>
 
         <!-- Sección de Reseñas -->
         <div id="reviewsSection">
-            <div class="row d-flex justify-content-center">
+            <div id="error-de-extraccion-reseñas" class="container"></div>
+            <div id="reviews-Cards" class="row d-flex justify-content-center">
                 <!-- INICIO DE CAR DE RESEÑAS -->
-                <div class="col-md-11 border border-secondary m-4">
-                    <h5 class="card-title mx-3 mt-3">User</h5>
-                    <p class="card-text mx-3">Hace ## minutos</p>
-                    <div class="card mb-3 d-flex align-items-center">
-                        <div class="row g-0">
-                            <div class="col-md-3">
-                                <img id="posterPathReseña" src="https://es.web.img3.acsta.net/pictures/14/03/06/10/13/369709.jpg"
-                                    class="img-fluid rounded-start ml-2 mt-3" alt="Icono de perfil" />
-                            </div>
-                            <div class="col-md-9">
-                                <div class="card-body">
-
-                                    <h5 class="card-subtitle mt-3 text-center">
-                                        Nombre de la película
-                                    </h5>
-                                    <div class="d-flex align-items-center">
-                                        <!-- Selector de estrellas -->
-                                        <!-- Selector de estrellas -->
-                                        <form id="estrellas-form">
-                                            <p class="clasificacion">
-                                                <input id="radio10" type="radio" name="estrellas" value="10" disabled><!--
-                              --><label for="radio10">★</label><!--
-                              --><input id="radio9" type="radio" name="estrellas" value="9" disabled><!--
-                              --><label for="radio9">★</label><!--
-                              --><input id="radio8" type="radio" name="estrellas" value="8" disabled><!--
-                              --><label for="radio8">★</label><!--
-                              --><input id="radio7" type="radio" name="estrellas" value="7" disabled><!--
-                              --><label for="radio7">★</label><!--
-                              --><input id="radio6" type="radio" name="estrellas" value="6" disabled><!--
-                              --><label for="radio6">★</label><!--
-                              --><input id="radio5" type="radio" name="estrellas" value="5" disabled><!--
-                              --><label for="radio5">★</label><!--
-                              --><input id="radio4" type="radio" name="estrellas" value="4" disabled><!--
-                              --><label for="radio4">★</label><!--
-                              --><input id="radio3" type="radio" name="estrellas" value="3" disabled><!--
-                              --><label for="radio3">★</label><!--
-                              --><input id="radio2" type="radio" name="estrellas" value="2" disabled><!--
-                              --><label for="radio2">★</label><!--
-                              --><input id="radio1" type="radio" name="estrellas" value="1" disabled><!--
-                              --><label for="radio1">★</label>
-                                            </p>
-                                        </form>
-                                    </div>
-                                    <p class="card-text text-justify">SHREK presenta a una princesa encantada en una
-                                        torre, custodiada por un dragón que escupe fuego. Tiene un burro que no sólo
-                                        habla, y no sólo canta, sino que canta la vieja canción de los Monkees, "I'm a
-                                        Believer". Tiene un villano muy malo (pero bajito), kickboxing, un Robin Hood y
-                                        unos Merry Men que bailan un baile irlandés, humor grosero y algunas burlas de
-                                        Disney. Tiene una animación sensacional, aventura, romance y risas. Sobre todo,
-                                        tiene a Shrek, un gran ogro verde que vive felizmente solo en un pantano hasta
-                                        que Lord Farquaad, de la cercana Dulac, se propone crear el reino perfecto
-                                        deshaciéndose de todos los personajes de cuentos de hadas y enviándolos a "una
-                                        comunidad de reubicación designada". Pronto, los tres ratones ciegos, los tres
-                                        cerditos, el hombre galleta de jengibre, todas las brujas que vuelan en escoba,
-                                        Pinocho y un burro parlante son reubicados en el pantano. Shrek está furioso por
-                                        la intrusión. Hace un trato con Farquaad, que necesita casarse con una princesa
-                                        para dar el toque final a su reino. Shrek rescatará a la princesa Fiona y se la
-                                        llevará a Farquaad, a cambio, Farquaad le devolverá su pantano a Shrek.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- FIN DE CAR DE RESEÑAS -->
+                <!-- FIN DE CAR DE RESEÑAS -->
             </div>
             <!-- INICIO DE Paginación de reseñas -->
             <nav aria-label="Pagination">
@@ -130,7 +70,8 @@
                         <a class="page-link" href="#">Siguiente</a>
                     </li>
                 </ul>
-            </nav><!-- FIN DE Paginación de reseñas -->
+            </nav>
+            <!-- FIN DE Paginación de reseñas -->
         </div>
     </div>
 
@@ -138,14 +79,16 @@
     <div id="footer-container"></div>
 
 
-
-
     <!-- JS para lista de peliculas -->
     <script type="module" src="listapeliculaspop/listapeliculas.js"></script>
+    <!-- JS para lista de reseñas -->
+    <script type="module" src="listareseñas/listareseñas.js"></script>
     <!-- JS para principal -->
     <script type="module" src="principal/principal.js"></script>
     <!--SCRIPTS DE Navbar-->
     <script type="module" src="navbar/navbar.js"></script>
+    <!--SCRIPTS DE LogOut-->
+    <script type="module" src="../auth/controllers/login/logout.js"></script>
     <!--SCRIPTS DE paginacion-->
     <script type="module" src="paginacion/paginacion.js"></script>
     <!--SCRIPTS DE footer-->

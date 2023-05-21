@@ -22,37 +22,3 @@
 #posterPathReseña{
     width: 100%;
 }
-/*ESTILOS PARA MARCAR ESTRELLAS SELECCIONADA*/
-
-#estrellas-form {
-    width: 250px;
-    /*margin: 0 auto;*//*PARA CENTRAR LAS ESTRELLAS*/
-    height: 50px;
-}
-
-#estrellas-form p {
-    text-align: center;
-}
-
-#estrellas-form label {
-    font-size: 30px;
-}
-
-#estrellas-form input[type="radio"] {
-    display: none;
-}
-
-#estrellas-form label {
-    color: grey;
-    cursor: default;
-    /* Evita que el cursor cambie al pasar sobre las estrellas */
-}
-
-#estrellas-form  .clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-}
-
-#estrellas-form  input[type="radio"]:checked~label {
-    color: orange;
-}

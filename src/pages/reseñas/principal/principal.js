@@ -21,20 +21,5 @@ function selectOption() {
   });
 }
 
-function marcarEstrellas() {
-  // Valor de estrellas
-  var valorEstrellas = 9;
-
-  // Seleccionar la estrella correspondiente
-  var estrellaSeleccionada = document.querySelector(
-    'input[name="estrellas"][value="' + valorEstrellas + '"]'
-  );
-  if (estrellaSeleccionada) {
-    estrellaSeleccionada.checked = true;
-  }
-}
-
 //FUNCIONES XD
 selectOption(); //Para dar funcionamiento al selector entre PELICULAS Y RESEÑAS.
-
-marcarEstrellas(); //Para mostrar cuantas estrellas se han seleccionado

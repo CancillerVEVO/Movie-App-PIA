@@ -1,7 +1,7 @@
 import { getListaPeliculasPop } from "./listapeliculas.api";
 import { Error, ImprimirPeliculas } from "./listapeliculas.components";
 
-const errorContainer = document.getElementById("error-de-extraccion");
+const errorContainer = document.getElementById("error-de-extraccion-peliculas");
 const moviesCards = document.getElementById("movies-Cards");
 
 async function mostrarPeliculasPop() {
@@ -9,7 +9,7 @@ async function mostrarPeliculasPop() {
     const resp = await getListaPeliculasPop();
     const infoPeliculas = resp;
     infoPeliculas.results.forEach((result) => {
-      console.log("Resultado:", result);
+      //console.log("Resultado:", result);
 
       //IMPRIMIR RESULTADOS
       

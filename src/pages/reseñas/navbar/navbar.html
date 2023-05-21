@@ -1,22 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <!-- Icono de perfil con nombre a la izquierda -->
-      <a class="navbar-brand" href="#">
-        <i class="bi bi-person-circle"></i>
-        Name
-      </a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+      <!-- Botón de colapso para dispositivos móviles -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <!-- Buscador en el centro -->
-      <form class="d-flex mx-auto">
-        <input id="buscar-pelicula" class="form-control me-2" type="search" placeholder="Buscar pelicula..." aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+      <!-- Contenido del navbar -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <!-- Icono de perfil con nombre a la izquierda -->
+                      <i class="bi bi-person-circle navbar-brand"></i>
+                      USER
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Mi Perfil</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#" id="cerrar-sesion">Cerrar Sesión</a>
+                  </div>
+              </li>
+          </ul>
 
-      <!-- Menú "Home" a la derecha -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="principal.html"><i class="bi bi-house-door-fill"></i> HOME</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+          <!-- Buscador -->
+          <form class="form-inline my-2 my-md-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+          <!-- Menú "Home" -->
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="principal.html"><i class="bi bi-house-door-fill"></i> HOME</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>

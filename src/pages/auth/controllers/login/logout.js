@@ -6,7 +6,7 @@ function cerrarSesion() {
   window.location.href = "/";
 }
 // Utiliza fetch para obtener el contenido del archivo del navbar
-fetch('navbar/navbar.html')
+fetch('../componentes/navbar/navbar.html')
   .then(response => response.text()) // convierte la respuesta a texto
   .then(data => {
     // Coloca el contenido del navbar en el contenedor correspondiente

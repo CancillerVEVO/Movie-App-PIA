@@ -1,5 +1,5 @@
 // Utiliza fetch para obtener el contenido del archivo del footer
-fetch('footer/footer.html')
+fetch('../componentes/footer/footer.html')
 .then(response => response.text()) // convierte la respuesta a texto
 .then(data => {
   // Coloca el contenido del footer en el contenedor del footer

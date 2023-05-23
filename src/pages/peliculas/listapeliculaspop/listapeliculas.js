@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const queryParams = new URLSearchParams(window.location.search);
   let currentPage = parseInt(queryParams.get("page")) || 1;
 
-  if (isNaN(currentPage) || currentPage < 1) {
+  if (!queryParams.has("page") || isNaN(currentPage) || currentPage < 1) {
     // REDIRIGIR A LA PÁGINA ACTUAL CON LA PÁGINA 1
     window.location.href = `peliculas.html?page=1`;
   }

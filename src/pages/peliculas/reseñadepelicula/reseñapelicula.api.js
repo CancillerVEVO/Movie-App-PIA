@@ -1,22 +1,12 @@
 import { movieApi } from "@/api/movieApi";
 import { getApiError } from "@/utils/getApiError";
 
-//OBTENCION DE PELICULAS POPULARES
-async function getListaPeliculasPop(){
-  try{
-    const responseMovies = await movieApi.get(`movies?page=1`);
-    return responseMovies.data;
-  }catch(error){
-    throw getApiError(error);
-  }
-}
-
 //OBTENCION DE RESEÑAS
-async function getListaReseñas(){
-  try{
-    const responseMovies = await movieApi.get(`review`);
+async function getListaReseñas(page) {
+  try {
+    const responseMovies = await movieApi.get(`review?page=${Number(page)}`);
     return responseMovies.data;
-  }catch(error){
+  } catch (error) {
     throw getApiError(error);
   }
 }

@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const response = await getListaReseñas(currentPage);
-    const { reviews, totalResults } = response.data;
+    const { reviews, totalPages } = response.data;
 
     reviews.forEach((review) => {
       //IMPRIMIR RESULTADOS
@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       const pagination = new Pagination(
         "pagination-container",
-        100,
+        totalPages,
         currentPage
       );
       pagination.onChangePage = async (newPage) => {

@@ -1,3 +1,4 @@
+import { Pagination } from "../../componentes/Pagination";
 import { getListaPeliculasPop } from "./listapeliculas.api";
 import { Error, ImprimirPeliculas } from "./listapeliculas.components";
 
@@ -10,7 +11,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   if (isNaN(currentPage) || currentPage < 1) {
     // REDIRIGIR A LA PÁGINA ACTUAL CON LA PÁGINA 1
-    window.location.href = `listapeliculaspop.html?page=1`;
+    window.location.href = `peliculas.html?page=1`;
   }
 
   try {
@@ -24,72 +25,30 @@ window.addEventListener("DOMContentLoaded", async () => {
       moviesCards.append(movieList);
     });
 
-    // Calcular el rango de páginas a mostrar
-    const range = calculatePaginationRange(currentPage, totalPages);
-
-    // Crear el componente de paginación con estilo Bootstrap
-    const pagination = document.createElement("nav");
-    pagination.setAttribute("aria-label", "Page navigation");
-    const paginationList = document.createElement("ul");
-    paginationList.classList.add("pagination");
-
-    // Botón "Anterior"
-    const prevButton = createPaginationButton("Anterior", currentPage > 1);
-    paginationList.append(prevButton);
-
-    // Página actual
-    const currentPageButton = createPaginationButton(currentPage, false);
-    currentPageButton.classList.add("active");
-    paginationList.append(currentPageButton);
-
-    // Botón "Siguiente"
-    const nextButton = createPaginationButton(
-      "Siguiente",
-      currentPage < totalPages
+    // Crear el componente de paginación
+    const pagination = new Pagination(
+      "pagination-container",
+      totalPages,
+      currentPage
     );
-    paginationList.append(nextButton);
+    pagination.onChangePage = async (newPage) => {
+      queryParams.set("page", newPage);
+      history.pushState({}, "", `?${queryParams.toString()}`);
 
-    pagination.append(paginationList);
+      // Limpiar las películas existentes
+      moviesCards.innerHTML = "";
 
-    // Agregar el componente de paginación al contenedor deseado
-    const paginationContainer = document.getElementById("pagination-container");
-    paginationContainer.innerHTML = "";
-    paginationContainer.append(pagination);
+      // Obtener las películas de la página seleccionada
+      await getMovies(newPage);
+      currentPage = newPage;
 
-    // Manejar el evento de clic en los botones de paginación
-    paginationList.addEventListener("click", async (event) => {
-      event.preventDefault();
-      if (event.target.tagName === "BUTTON") {
-        const buttonValue = event.target.textContent;
-        let newPage = currentPage;
+      // Renderizar el componente de paginación nuevamente
+      pagination.currentPage = currentPage;
+      pagination.render();
+    };
 
-        if (buttonValue === "Anterior") {
-          newPage = currentPage - 1;
-        } else if (buttonValue === "Siguiente") {
-          newPage = currentPage + 1;
-        }
-
-        if (newPage !== currentPage) {
-          queryParams.set("page", newPage);
-          history.pushState({}, "", `?${queryParams.toString()}`);
-
-          // Limpiar las películas existentes
-          moviesCards.innerHTML = "";
-
-          // Actualizar el estilo del botón de página actual
-          currentPageButton.textContent = newPage;
-          currentPageButton.classList.add("active");
-          currentPageButton.disabled = true;
-
-          // Actualizar visibilidad y estado del botón "Anterior"
-          prevButton.disabled = newPage === 1 ? true : false;
-
-          // Obtener las películas de la página seleccionada
-          await getMovies(newPage);
-          currentPage = newPage;
-        }
-      }
-    });
+    // Renderizar el componente de paginación
+    pagination.render();
   } catch (error) {
     const errorHTML = document.createElement("div");
     errorHTML.innerHTML = Error(error.message);
@@ -113,24 +72,4 @@ async function getMovies(page) {
     errorHTML.innerHTML = Error(error.message);
     errorContainer.append(errorHTML);
   }
-}
-
-function calculatePaginationRange(currentPage, totalPages) {
-  const maxPagesToShow = 5;
-  let start = Math.max(currentPage - Math.floor(maxPagesToShow / 2), 1);
-  let end = Math.min(start + maxPagesToShow - 1, totalPages);
-
-  if (end - start + 1 < maxPagesToShow) {
-    start = Math.max(end - maxPagesToShow + 1, 1);
-  }
-
-  return { start, end };
-}
-
-function createPaginationButton(text, enabled) {
-  const button = document.createElement("button");
-  button.classList.add("page-link");
-  button.textContent = text;
-  button.disabled = !enabled;
-  return button;
 }

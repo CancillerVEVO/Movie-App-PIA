@@ -28,6 +28,10 @@
     />
     <!--SESSION CHECK-->
     <script src="../auth/controllers/session.check.js"></script>
+    <!--SCRIPTS DE Navbar-->
+    <script type="module" src="../componentes/navbar/navbar.js"></script>
+    <!--SELECTORES CSS-->
+    <link rel="stylesheet" href="../componentes/selector/selector.css">
   </head>
 
   <body>
@@ -37,12 +41,8 @@
     <!--SELECTORES-->
     <div class="mb-3 my-4 d-flex justify-content-center">
       <div class="btn-group" role="group" aria-label="Switch Movies Reviews">
-        <button type="button" class="btn btn-dark" id="moviesBtn">
-          <a href="../peliculas/peliculas.html">PELICULAS</a>
-        </button>
-        <button type="button" class="btn btn-light active" id="reviewsBtn">
-          RESEÑAS
-        </button>
+        <button type="button" class="btn btn-dark" id="moviesBtn">PELICULAS</button>
+        <button type="button" class="btn btn-light active" id="reviewsBtn">RESEÑAS</button>
       </div>
     </div>
 
@@ -64,14 +64,22 @@
       </div>
     </div>
 
+
+
+
+    <!-- ==============================================
+    ===============SCRIPTS DE JS=======================
+    ====================================================-->
+
+
+    <!-- SCRRIP DE SELECTOR -->
+    <script src="../componentes/selector/selector.js"></script>
+
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
 
     <!-- JS para lista de reseñas -->
     <script type="module" src="listareseñas/listareseñas.js"></script>
-
-    <!--SCRIPTS DE Navbar-->
-    <script type="module" src="../componentes/navbar/navbar.js"></script>
 
     <!--SCRIPTS DE LogOut-->
     <script type="module" src="../auth/controllers/login/logout.js"></script>

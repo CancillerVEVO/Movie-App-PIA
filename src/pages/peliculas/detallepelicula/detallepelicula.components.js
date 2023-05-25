@@ -35,7 +35,7 @@ function ImprimirReseñas({ id, titulo, contenido, calificacion, fechaCreacion, 
                   <div id="estrellas-reseña-${id}" class="my-3" value="${calificacion}"></div>
                 </div>
                 <p class="card-text text-justify">${contenido}</p>
-                <button class"button bg-dark"><a href="peliculas.html">VER RESEÑA</a></button>
+                <button class"button bg-dark"><a href="../reseñas/detallereseña.html?${id}">VER RESEÑA</a></button>
               </div>
             </div>
           </div>

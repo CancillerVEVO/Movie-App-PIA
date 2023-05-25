@@ -8,17 +8,16 @@ const moviesCards = document.getElementById("movies-Cards");
 window.addEventListener("DOMContentLoaded", async () => {
   const queryParams = new URLSearchParams(window.location.search);
   let currentPage = parseInt(queryParams.get("page")) || 1;
-  const searchQuery = queryParams.get("name");
+  let searchQuery = String (queryParams.get("name"));
 
-  if (!queryParams.has("page") || isNaN(currentPage) || currentPage < 1) {
+  if (!queryParams.has("page") || isNaN(currentPage) || currentPage < 1 || !queryParams.has("name")) {
     // REDIRIGIR A LA PÁGINA ACTUAL CON LA PÁGINA 1
-    window.location.href = `buscarpelicula.html?page=1`;
+    window.location.href = `buscarpelicula.html?page=1&name=a`;
   }
 
   try {
     const response = await searchPelicula(currentPage, searchQuery);
     const { totalPages, results } = response;
-
     results.forEach((result) => {
       const movieList = document.createElement("div");
       movieList.classList.add("col-md-3");

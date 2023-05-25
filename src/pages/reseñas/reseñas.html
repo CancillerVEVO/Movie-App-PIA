@@ -31,7 +31,7 @@
     <!--SCRIPTS DE Navbar-->
     <script type="module" src="../componentes/navbar/navbar.js"></script>
     <!--SELECTORES CSS-->
-    <link rel="stylesheet" href="../componentes/selector/selector.css">
+    <link rel="stylesheet" href="../componentes/selector/selector.css" />
   </head>
 
   <body>
@@ -41,8 +41,12 @@
     <!--SELECTORES-->
     <div class="mb-3 my-4 d-flex justify-content-center">
       <div class="btn-group" role="group" aria-label="Switch Movies Reviews">
-        <button type="button" class="btn btn-dark" id="moviesBtn">PELICULAS</button>
-        <button type="button" class="btn btn-light active" id="reviewsBtn">RESEÑAS</button>
+        <button type="button" class="btn btn-dark" id="moviesBtn">
+          PELICULAS
+        </button>
+        <button type="button" class="btn btn-light active" id="reviewsBtn">
+          RESEÑAS
+        </button>
       </div>
     </div>
 
@@ -59,18 +63,17 @@
           <!-- FIN DE CAR DE RESEÑAS -->
         </div>
         <!-- INICIO DE Paginación de reseñas -->
-        <div id="pagination-container" class="d-flex justify-content-center my-3"></div>
+        <div
+          id="pagination-container"
+          class="d-flex justify-content-center my-3"
+        ></div>
         <!-- FIN DE Paginación de reseñas -->
       </div>
     </div>
 
-
-
-
     <!-- ==============================================
     ===============SCRIPTS DE JS=======================
     ====================================================-->
-
 
     <!-- SCRRIP DE SELECTOR -->
     <script src="../componentes/selector/selector.js"></script>
@@ -81,9 +84,8 @@
     <!-- JS para lista de reseñas -->
     <script type="module" src="listareseñas/listareseñas.js"></script>
 
-    <!--SCRIPTS DE LogOut-->
-    <script type="module" src="../auth/controllers/login/logout.js"></script>
-
+    <!-- EVENTOS del navbar-->
+    <script type="module" src="../componentes/navbar/navbar.events.js"></script>
     <!--SCRIPTS DE footer-->
     <script type="module" src="../componentes/footer/footer.js"></script>
 

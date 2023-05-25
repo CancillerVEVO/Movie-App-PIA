@@ -1,45 +1,81 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
     <!-- Título de la página -->
-    <span class="navbar-brand mb-0 h1">The FilmCritic <i class="bi bi-film"></i></span>
-      <!-- Botón de colapso para dispositivos móviles -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+    <span class="navbar-brand mb-0 h1"
+      >The FilmCritic <i class="bi bi-film"></i
+    ></span>
+    <!-- Botón de colapso para dispositivos móviles -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- Contenido del navbar -->
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <!-- Icono de perfil con nombre a la izquierda -->
-                      <i class="bi bi-person-circle navbar-brand"></i>
-                      USER
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Mi Perfil</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#" id="cerrar-sesion">Cerrar Sesión</a>
-                  </div>
-              </li>
-          </ul>
+    <!-- Contenido del navbar -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <!-- Icono de perfil con nombre a la izquierda -->
+            <i class="bi bi-person-circle navbar-brand"></i>
+            USER
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Mi Perfil</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="cerrar-sesion"
+              >Cerrar Sesión</a
+            >
+          </div>
+        </li>
+      </ul>
 
-          <!-- Buscador -->
-          <form id="form-search" class="form-inline my-2 my-md-0">
-            
-            <input id="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            
-            <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">BUSCAR</button>
+      <!-- Buscador -->
+      <form id="form-search" class="form-inline my-2 my-md-0">
+        <input
+          id="searchInput"
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+        />
 
-          </form>    
-          
+        <button
+          id="searchButton"
+          class="btn btn-outline-success my-2 my-sm-0"
+          type="submit"
+        >
+          BUSCAR
+        </button>
+      </form>
 
-          <!-- Menú "Home" -->
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <button class="nav-link btn" onclick="window.location.href = '../peliculas/peliculas.html'"><i class="bi bi-house-door-fill"></i> HOME</button>
-            </li>
-          </ul>                  
-      </div>
+      <!-- Menú "Home" -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button
+            class="nav-link btn"
+            onclick="window.location.href = '../peliculas/peliculas.html'"
+          >
+            <i class="bi bi-house-door-fill"></i> HOME
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
+
+<script type="module" src="./navbar.events.js"></script>

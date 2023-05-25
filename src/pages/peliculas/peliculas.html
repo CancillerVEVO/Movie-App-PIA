@@ -31,7 +31,7 @@
     <!--SCRIPTS DE Navbar-->
     <script type="module" src="../componentes/navbar/navbar.js"></script>
     <!--SELECTORES CSS-->
-    <link rel="stylesheet" href="../componentes/selector/selector.css">
+    <link rel="stylesheet" href="../componentes/selector/selector.css" />
   </head>
 
   <body>
@@ -41,8 +41,12 @@
     <!--SELECTORES-->
     <div class="mb-3 my-4 d-flex justify-content-center">
       <div class="btn-group" role="group" aria-label="Switch Movies Reviews">
-        <button type="button" class="btn btn-light active" id="moviesBtn">PELICULAS</button>
-        <button type="button" class="btn btn-dark" id="reviewsBtn">RESEÑAS</button>
+        <button type="button" class="btn btn-light active" id="moviesBtn">
+          PELICULAS
+        </button>
+        <button type="button" class="btn btn-dark" id="reviewsBtn">
+          RESEÑAS
+        </button>
       </div>
     </div>
 
@@ -59,17 +63,19 @@
           <!-- FIN DE CARD de Películas -->
         </div>
 
-        <div id="pagination-container" class="d-flex justify-content-center my-3"></div>
+        <div
+          id="pagination-container"
+          class="d-flex justify-content-center my-3"
+        ></div>
         <!-- FIN DE Paginación de reseñas -->
-      </div><!-- FIN de Sección de Películas -->
-
-    </div><!--FIN DE CONTENIDO-->
-
+      </div>
+      <!-- FIN de Sección de Películas -->
+    </div>
+    <!--FIN DE CONTENIDO-->
 
     <!-- ==============================================
     ===============SCRIPTS DE JS=======================
     ====================================================-->
-
 
     <!-- SCRRIP DE SELECTOR -->
     <script src="../componentes/selector/selector.js"></script>
@@ -79,13 +85,12 @@
     <!-- JS para lista de peliculas -->
     <script type="module" src="listapeliculaspop/listapeliculas.js"></script>
 
-    <!--SCRIPTS DE LogOut-->
-    <script type="module" src="../auth/controllers/login/logout.js"></script>
+    <!-- EVENTOS del navbar-->
+
+    <script type="module" src="../componentes/navbar/navbar.events.js"></script>
 
     <!--SCRIPTS DE footer-->
     <script type="module" src="../componentes/footer/footer.js"></script>
-     <!-- JS para BUSCADOR peliculas--> 
-     <script type="module" src="buscarpelicula/buscador.js"></script>
 
     <!--SCRIPTS DE BS-->
     <script

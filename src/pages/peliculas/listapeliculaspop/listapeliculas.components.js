@@ -19,12 +19,5 @@ function Error(message) {
       `;
 }
 
-function GenreListItem(name) {
-  return `
-      <p>
-          ${name}
-      </p>
-    `;
-}
 
-export { Error, GenreListItem, ImprimirPeliculas };
+export { Error, ImprimirPeliculas };

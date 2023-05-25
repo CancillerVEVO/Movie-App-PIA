@@ -1,3 +1,5 @@
+
+
 function alternarVisibilidadComentarios(boton) {
   var contenedorLorem = document.getElementById("contenedor-lorem");
   if (contenedorLorem.style.display === "none") {

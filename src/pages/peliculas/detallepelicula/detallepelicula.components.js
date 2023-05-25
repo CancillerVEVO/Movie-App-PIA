@@ -15,8 +15,11 @@ function ImprimirPelicula({ id, title, posterPath, overview }) {
 </div>
       `;
 }
-function ImprimirReseñas({ id, titulo, contenido, calificacion, fechaCreacion, autor},posterPath) {
-    return `
+function ImprimirReseñas(
+  { id, titulo, contenido, calificacion, fechaCreacion, autor },
+  posterPath
+) {
+  return `
           <h5 class="card-title mx-3 mt-3">${autor.nombre}</h5>
         <p class="card-text mx-3">Hace ${fechaCreacion}</p>
         <div class="card mb-3 d-flex align-items-center">
@@ -35,13 +38,15 @@ function ImprimirReseñas({ id, titulo, contenido, calificacion, fechaCreacion, 
                   <div id="estrellas-reseña-${id}" class="my-3" value="${calificacion}"></div>
                 </div>
                 <p class="card-text text-justify">${contenido}</p>
-                <button class"button bg-dark"><a href="../reseñas/detallereseña.html?${id}">VER RESEÑA</a></button>
+                <button class="btn btn-dark d-block mx-auto" onclick="location.href='../reseñas/detallereseña.html?${id}'">
+                  VER RESEÑA
+                </button>
               </div>
             </div>
           </div>
         </div>
         `;
-  }
+}
 
 function Error(message) {
   return `

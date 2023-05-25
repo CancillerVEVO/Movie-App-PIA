@@ -35,6 +35,10 @@
   <body>
     <!--NAVBAR PANTALLA DE INICIO-->
     <div id="nav-reseñas-container"></div>
+    <!--BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
+    <button class="btn m-4" onclick="goBack()">
+      <i class="bi bi-arrow-left"></i> Volver
+    </button>
 
     <!--CONTENIDO-->
     <div
@@ -49,11 +53,15 @@
           <!-- FIN DE CARD de Películas -->
         </div>
 
-        <div id="pagination-container" class="d-flex justify-content-center my-3"></div>
+        <div
+          id="pagination-container"
+          class="d-flex justify-content-center my-3"
+        ></div>
         <!-- FIN DE Paginación de reseñas -->
-      </div><!-- FIN de Sección de Películas -->
-
-    </div><!--FIN DE CONTENIDO-->
+      </div>
+      <!-- FIN de Sección de Películas -->
+    </div>
+    <!--FIN DE CONTENIDO-->
 
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
@@ -62,6 +70,8 @@
     <script type="module" src="./buscarpelicula/buscarpelicula.js"></script>
     <!-- JS para BUSCAR peliculas -->
     <script type="module" src="./buscarpelicula/buscador.js"></script>
+    <!--SCRIPT BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
+    <script src="../componentes/volver/volver.js"></script>
 
     <!--SCRIPTS DE LogOut-->
     <script type="module" src="../auth/controllers/login/logout.js"></script>

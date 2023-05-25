@@ -38,7 +38,7 @@ function ImprimirReseñas(
                   <div id="estrellas-reseña-${id}" class="my-3" value="${calificacion}"></div>
                 </div>
                 <p class="card-text text-justify">${contenido}</p>
-                <button class="btn btn-dark d-block mx-auto" onclick="location.href='../reseñas/detallereseña.html?${id}'">
+                <button class="btn btn-dark d-block mx-auto" onclick="location.href='../reseñas/detallereseña.html?movieId=${id}'">
                   VER RESEÑA
                 </button>
               </div>

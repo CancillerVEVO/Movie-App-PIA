@@ -22,3 +22,7 @@
 #posterPathReseña{
     width: 100%;
 }
+.pagination .active {
+    background-color: #007bff;
+    color: #fff;
+  }

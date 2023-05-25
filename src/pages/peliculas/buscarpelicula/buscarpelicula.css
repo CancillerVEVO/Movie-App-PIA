@@ -1,0 +1,9 @@
+/*Estilos para Seccion de peliculas*/
+#posterPathMovies{
+    width: 150px;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: #fff;
+  }

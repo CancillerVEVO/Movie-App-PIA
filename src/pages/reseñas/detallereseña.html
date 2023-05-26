@@ -59,7 +59,7 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col text-center">
-            <button id="vercomentsBtn" class="btn btn-secondary mb-3">
+            <button id="verComentariosBtn" class="btn btn-secondary mb-3">
               VER COMENTARIOS
             </button>
           </div>
@@ -67,8 +67,9 @@
       </div>
 
       <!-- CONTENEDOR DE COMENTARIOS -->
-      <div class="mt-4" id="contenedor-lorem" style="display: none">
-        <div class="card mb-3 border border-warning">
+      <div class="mt-4" id="contenedor-comentarios" style="display: none">
+        <!-- Dentro de aqui se van a imprimir los comenterarios -->
+        <div id="card-comentarios">
           <div class="card-body">
             <h5 class="card-title">Nombre de Usuario</h5>
             <h6 class="card-subtitle mb-2 text-muted">ID de Comentario</h6>
@@ -86,12 +87,10 @@
             </p>
 
             <!-- BOTONES PARA COMENTAR -->
-            <button id="comentarBtn" class="btn btn-primary">
+            <button id="escribirRespuestaBtn" class="btn btn-primary">
               Escribir respuesta
             </button>
-            <a href="./detallerespuesta.html" class="btn btn-secondary"
-              >Ver respuestas</a
-            >
+            <a href="#" class="btn btn-secondary">Ver respuestas</a>
             <div id="formulario-respuesta" class="d-none mt-4">
               <form>
                 <div class="form-group">
@@ -104,6 +103,13 @@
                 <button type="submit" class="btn btn-success">
                   Enviar respuesta
                 </button>
+                <button
+                  id="cancelarBtn"
+                  type="button"
+                  class="btn btn-secondary"
+                >
+                  Cancelar
+                </button>
               </form>
             </div>
           </div>
@@ -113,6 +119,9 @@
 
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
+    <!--SCRIPT PARA MOSTRAR Y OCULTAR COMENTARIOS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!--SCRIPT DE detallereseña-->
     <script type="module" src="detallereseña/detallereseña.js"></script>

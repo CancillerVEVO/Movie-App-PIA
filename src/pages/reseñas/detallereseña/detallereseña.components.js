@@ -28,6 +28,45 @@ function ImprimirReseñas(
           </div>
           `;
 }
+function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
+  return `
+    <div class="card-body">
+    <h5 class="card-title">${usuario.nombre}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">ID de Comentario: ${id}</h6>
+    <p class="card-text">Fecha: ${fechaCreado}</p>
+    <p class="card-text">
+      ${contenido}
+    </p>
+
+    <!-- BOTONES PARA COMENTAR -->
+    <button id="escribirRespuestaBtn" class="btn btn-primary">
+      Escribir respuesta
+    </button>
+    <a href="#" class="btn btn-secondary">Ver respuestas</a>
+    <div id="formulario-respuesta" class="d-none mt-4">
+      <form>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            rows="3"
+            placeholder="Escribe tu respuesta aquí"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">
+          Enviar respuesta
+        </button>
+        <button
+          id="cancelarBtn"
+          type="button"
+          class="btn btn-secondary"
+        >
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>    
+    `;
+}
 
 function Error(message) {
   return `
@@ -36,4 +75,4 @@ function Error(message) {
         `;
 }
 
-export { Error, ImprimirReseñas };
+export { Error, ImprimirReseñas, imprimirComentarios };

@@ -11,5 +11,14 @@ async function getListaReseñas(reviewId) {
     throw getApiError(error);
   }
 }
+//OBTENCION DE COMENTARIOS
+async function getComentarios(reviewId) {
+  try {
+    const responseComents = await movieApi.get(`review/${reviewId}/comments`);
+    return responseComents.data;
+  } catch (error) {
+    throw getApiError(error);
+  }
+}
 
-export { getListaReseñas };
+export { getListaReseñas, getComentarios };

@@ -7,6 +7,7 @@
     <title>DETALLE RESEÑA</title>
     <!--LINKS DE ESTILOS
     <link rel="stylesheet" href="" />-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--BS ICONS-->
     <link
       rel="stylesheet"
@@ -69,59 +70,13 @@
       <!-- CONTENEDOR DE COMENTARIOS -->
       <div class="mt-4" id="contenedor-comentarios" style="display: none">
         <!-- Dentro de aqui se van a imprimir los comenterarios -->
-        <div id="card-comentarios">
-          <div class="card-body">
-            <h5 class="card-title">Nombre de Usuario</h5>
-            <h6 class="card-subtitle mb-2 text-muted">ID de Comentario</h6>
-            <p class="card-text">Fecha:</p>
-            <p class="card-text">
-              Contenido del comentario Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Ut hendrerit purus eget ex elementum, a dignissim
-              orci condimentum. Proin auctor, lorem sed tincidunt semper, odio
-              sapien iaculis orci, in fermentum ex enim eu turpis. Quisque
-              tristique ante sed felis vulputate cursus. Mauris ut arcu ac risus
-              tristique lacinia. Proin vulputate ex in sagittis faucibus. Aenean
-              vitae ipsum sit amet elit aliquet viverra. Etiam blandit, libero
-              sit amet feugiat lacinia, sem nisi varius est, vitae varius orci
-              urna non est.
-            </p>
-
-            <!-- BOTONES PARA COMENTAR -->
-            <button id="escribirRespuestaBtn" class="btn btn-primary">
-              Escribir respuesta
-            </button>
-            <a href="#" class="btn btn-secondary">Ver respuestas</a>
-            <div id="formulario-respuesta" class="d-none mt-4">
-              <form>
-                <div class="form-group">
-                  <textarea
-                    class="form-control"
-                    rows="3"
-                    placeholder="Escribe tu respuesta aquí"
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-success">
-                  Enviar respuesta
-                </button>
-                <button
-                  id="cancelarBtn"
-                  type="button"
-                  class="btn btn-secondary"
-                >
-                  Cancelar
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+        <div id="card-comentarios"></div>
       </div>
     </div>
 
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
     <!--SCRIPT PARA MOSTRAR Y OCULTAR COMENTARIOS-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!--SCRIPT DE detallereseña-->
     <script type="module" src="detallereseña/detallereseña.js"></script>

@@ -38,12 +38,12 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
       ${contenido}
     </p>
 
-    <!-- BOTONES PARA COMENTAR -->
-    <button id="escribirRespuestaBtn" class="btn btn-primary">
-      Escribir respuesta
-    </button>
-    <a href="#" class="btn btn-secondary">Ver respuestas</a>
-    <div id="formulario-respuesta" class="d-none mt-4">
+    <!-- BOTONES PARA COMENTAR 
+    <button id="escribirRespuestaBtn-${id}" class="btn btn-primary">
+      Escribir comentario
+    </button>-->
+    <a href="#" class="btn btn-primary">Ver respuestas</a>
+    <div id="formulario-respuesta-${id}" class=" mt-4">
       <form>
         <div class="form-group">
           <textarea
@@ -52,11 +52,11 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
             placeholder="Escribe tu respuesta aquí"
           ></textarea>
         </div>
-        <button type="submit" class="btn btn-success">
-          Enviar respuesta
+        <button id="enviarRespuestaBtn-${id}" type="submit" class="btn btn-success">
+          Enviar comentario
         </button>
         <button
-          id="cancelarBtn"
+          id="cancelarBtn-${id}"
           type="button"
           class="btn btn-secondary"
         >

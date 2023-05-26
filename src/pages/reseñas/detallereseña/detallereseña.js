@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     //IMPRIMIR COMENTARIOS
     const responseComents = await getComentarios(reviewId);
     const { comentarios, totalResults } = responseComents.data;
-    console.log("responseComents.data", comentarios, totalResults);
+    //console.log("responseComents.data", comentarios, totalResults);
     const dataComents = comentarios.comentarios;
     dataComents.forEach((comentario) => {
       //IMPRIMIR RESULTADOS
@@ -81,20 +81,11 @@ verComentariosBtn.addEventListener("click", function (event) {
     verComentariosBtn.textContent = "Ocultar comentarios"; // Cambia el texto del botón
   }
 });
-// Obtenemos referencias al botón y al formulario de respuesta
-const escribirRespuestaBtn = document.getElementById("escribirRespuestaBtn");
-const formularioRespuesta = document.getElementById("formulario-respuesta");
-
-// Agregamos un evento clic al botón "Escribir respuesta"
-escribirRespuestaBtn.addEventListener("click", function (event) {
-  event.preventDefault(); // Evita el comportamiento por defecto del botón
-  formularioRespuesta.classList.remove("d-none"); // Muestra el formulario de respuesta
-  // Obtenemos una referencia al botón "Cancelar"
-  const cancelarBtn = document.getElementById("cancelarBtn");
-
-  // Agregamos un evento clic al botón "Cancelar"
-  cancelarBtn.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita el comportamiento por defecto del botón
-    formularioRespuesta.classList.add("d-none"); // Oculta el formulario de respuesta
-  });
-});
+/**
+ *
+ *
+ * AQUI YA ES PARA LAS RESPUESTAS
+ *
+ *
+ *
+ */

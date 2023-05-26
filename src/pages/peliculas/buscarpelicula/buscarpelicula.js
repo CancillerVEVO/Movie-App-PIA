@@ -8,9 +8,14 @@ const moviesCards = document.getElementById("movies-Cards");
 window.addEventListener("DOMContentLoaded", async () => {
   const queryParams = new URLSearchParams(window.location.search);
   let currentPage = parseInt(queryParams.get("page")) || 1;
-  let searchQuery = String (queryParams.get("name"));
+  let searchQuery = String(queryParams.get("name"));
 
-  if (!queryParams.has("page") || isNaN(currentPage) || currentPage < 1 || !queryParams.has("name")) {
+  if (
+    !queryParams.has("page") ||
+    isNaN(currentPage) ||
+    currentPage < 1 ||
+    !queryParams.has("name")
+  ) {
     // REDIRIGIR A LA PÁGINA ACTUAL CON LA PÁGINA 1
     window.location.href = `buscarpelicula.html?page=1&name=a`;
   }
@@ -18,6 +23,13 @@ window.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await searchPelicula(currentPage, searchQuery);
     const { totalPages, results } = response;
+
+    if (results.length === 0) {
+      errorContainer.innerHTML =
+        '<h1 class="text-center p-5">No se encontraron resultados</h1>';
+      return;
+    }
+
     results.forEach((result) => {
       const movieList = document.createElement("div");
       movieList.classList.add("col-md-3");
@@ -39,7 +51,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       moviesCards.innerHTML = "";
 
       // Obtener las películas de la página seleccionada
-      await getMovies(newPage);
+      await getMovies(newPage, searchQuery);
       currentPage = newPage;
 
       // Renderizar el componente de paginación nuevamente
@@ -56,9 +68,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-async function getMovies(page) {
+async function getMovies(page, searchQuery) {
   try {
-    const response = await searchPelicula(page);
+    const response = await searchPelicula(page, searchQuery);
     const { results } = response;
 
     results.forEach((result) => {

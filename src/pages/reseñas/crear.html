@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle pelicula</title>
+    <title>Escribir reseña</title>
     <!--LINKS DE ESTILOS-->
-    <link rel="stylesheet" href="detallepelicula/detallepelicula.css" />
+
+    <link rel="stylesheet" href="./crear/style.css" />
     <!--BS ICONS-->
     <link
       rel="stylesheet"
@@ -46,10 +47,7 @@
       <!-- Sección de Películas -->
       <div id="moviesSection">
         <div id="error-de-extraccion-peliculas" class="container"></div>
-        <h2 class="ml-5 pl-5">PELICULA:</h2>
-        <button id="escribirBtn" class="btn btn-primary">
-          ESCRIBIR RESEÑA
-        </button>
+
         <div id="movies-Cards" class="row justify-content-center">
           <!-- INICIO DE CARD de Películas -->
 
@@ -58,29 +56,49 @@
       </div>
       <!-- FIN de Sección de Películas -->
 
-      <!-- Sección de Reseñas -->
-      <div id="reviewSection" class="container my-4">
-        <div id="error-de-extraccion-reseñas" class="container"></div>
-        <h2>RESEÑAS:</h2>
-        <div id="reviews-Cards" class="row justify-content-center">
-          <!-- AQUI SE IMPRIMEN LAS RESEÑAS -->
-        </div>
-        <!-- INICIO DE Paginación de reseñas -->
-        <div
-          id="pagination-container"
-          class="d-flex justify-content-center my-3"
-        ></div>
-        <!-- FIN DE Paginación de reseñas -->
+      <!-- Sección de ESCRIBIR RESEÑA -->
+      <div class="container">
+        <h1>Escribir Reseña</h1>
+        <form id="crearForm">
+          <div class="mb-3">
+            <label for="titulo" class="form-label">Título:</label>
+            <input type="text" class="form-control" id="titulo" placeholder="Ingresa el título de la película" required>
+          </div>
+          <div class="mb-3">
+            <label for="contenido" class="form-label">Contenido:</label>
+            <textarea class="form-control" id="contenido" rows="5" placeholder="Escribe tu reseña" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="calificacion" class="form-label">Calificación:</label>
+            <select class="form-select" id="calificacion" required>
+              <option value="" selected disabled>Selecciona una calificación</option>
+              <option value="1">1 ⭐️</option>
+              <option value="2">2 ⭐️</option>
+              <option value="3">3 ⭐️</option>
+              <option value="4">4 ⭐️</option>
+              <option value="5">5 ⭐️</option>
+              <option value="6">6 ⭐️</option>
+              <option value="7">7 ⭐️</option>
+              <option value="8">8 ⭐️</option>
+              <option value="9">9 ⭐️</option>
+              <option value="10">10 ⭐️</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar reseña</button>
+        </form>
       </div>
-      <!-- FIN Sección de Reseñas -->
+      </div>
+      <!-- FIN Sección de ESCRIBIR RESEÑA -->
     </div>
     <!--FIN DE CONTENEDRO DE DETALLEPELICULAS-->
 
+
+<!-- ========== SCRIPT ========== -->
+<script type="module" src="./crear/crear.js"></script>
+
+
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
-
-    <!--SCRIPTS DE DETALLE PELICULA-->
-    <script type="module" src="detallepelicula/detallepelicula.js"></script>
 
     <!--SCRIPT BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
     <script src="../componentes/volver/volver.js"></script>

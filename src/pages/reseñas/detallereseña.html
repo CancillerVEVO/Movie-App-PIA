@@ -7,6 +7,7 @@
     <title>DETALLE RESEÑA</title>
     <!--LINKS DE ESTILOS
     <link rel="stylesheet" href="" />-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--BS ICONS-->
     <link
       rel="stylesheet"
@@ -45,44 +46,21 @@
       id="principal-container"
       class="container border border-secondary my-4"
     >
-      <!-- RESEÑA PRINCIPAL -->
-      <div class="container mt-5 border rounded p-4">
-        <div class="row">
-          <div class="col">
-            <div class="media">
-              <img src="ruta_de_la_imagen" class="mr-3" alt="Imagen" />
-              <div class="media-body">
-                <h6>
-                  <span class="text-muted" id="numero-resena"
-                    >ID RESEÑA #:</span
-                  >
-                  Nombre de usuario
-                </h6>
-                <p>Fecha de publicación</p>
-                <h6>Título de la reseña</h6>
-                <div class="d-flex align-items-center">
-                  <p class="mr-2 mb-0">Calificación:</p>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque eu metus odio. In tincidunt quam id orci rutrum
-                  elementum. Mauris quis orci ac urna scelerisque condimentum at
-                  a nunc. Quisque id mi et elit pellentesque convallis.
-                </p>
-              </div>
-            </div>
-          </div>
+      <!-- Sección de Reseñas -->
+      <div id="reviewSection" class="container my-4">
+        <div id="error-de-extraccion-reseñas" class="container"></div>
+        <h2>RESEÑAS:</h2>
+        <div id="reviews-Cards" class="row justify-content-center">
+          <!-- AQUI SE IMPRIMEN LAS RESEÑAS -->
         </div>
       </div>
+      <!-- FIN Sección de Reseñas -->
 
       <!-- BOTON MOSTRAR/OCULTAR COMENTARIOS -->
       <div class="container mt-5">
         <div class="row">
           <div class="col text-center">
-            <button
-              class="btn btn-secondary mb-3"
-              onclick="alternarVisibilidadComentarios(this)"
-            >
+            <button id="verComentariosBtn" class="btn btn-secondary mb-3">
               VER COMENTARIOS
             </button>
           </div>
@@ -90,61 +68,18 @@
       </div>
 
       <!-- CONTENEDOR DE COMENTARIOS -->
-      <div class="mt-4" id="contenedor-lorem" style="display: none">
-        <div class="card mb-3 border border-warning">
-          <div class="card-body">
-            <h5 class="card-title">Nombre de Usuario</h5>
-            <h6 class="card-subtitle mb-2 text-muted">ID de Comentario</h6>
-            <p class="card-text">Fecha:</p>
-            <p class="card-text">
-              Contenido del comentario Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Ut hendrerit purus eget ex elementum, a dignissim
-              orci condimentum. Proin auctor, lorem sed tincidunt semper, odio
-              sapien iaculis orci, in fermentum ex enim eu turpis. Quisque
-              tristique ante sed felis vulputate cursus. Mauris ut arcu ac risus
-              tristique lacinia. Proin vulputate ex in sagittis faucibus. Aenean
-              vitae ipsum sit amet elit aliquet viverra. Etiam blandit, libero
-              sit amet feugiat lacinia, sem nisi varius est, vitae varius orci
-              urna non est.
-            </p>
-
-            <!-- BOTONES PARA COMENTAR -->
-            <button
-              class="btn btn-primary"
-              onclick="mostrarFormularioRespuesta()"
-            >
-              Escribir respuesta
-            </button>
-            <a href="./detallerespuesta.html" class="btn btn-secondary"
-              >Ver respuestas</a
-            >
-            <div id="formulario-respuesta" class="d-none mt-4">
-              <form>
-                <div class="form-group">
-                  <textarea
-                    class="form-control"
-                    rows="3"
-                    placeholder="Escribe tu respuesta aquí"
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn btn-success">
-                  Enviar respuesta
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+      <div class="mt-4" id="contenedor-comentarios" style="display: none">
+        <!-- Dentro de aqui se van a imprimir los comenterarios -->
+        <div id="card-comentarios"></div>
       </div>
     </div>
 
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
-
-    <!--SCRIPT DE MOSTRAR Y OCULTAR COMENTARIOS-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--SCRIPT PARA MOSTRAR Y OCULTAR COMENTARIOS-->
 
     <!--SCRIPT DE detallereseña-->
-    <script src="./detallereseña/detallereseña.js"></script>
+    <script type="module" src="detallereseña/detallereseña.js"></script>
 
     <!--SCRIPT BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
     <script src="../componentes/volver/volver.js"></script>

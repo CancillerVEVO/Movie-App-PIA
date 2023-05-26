@@ -5,32 +5,29 @@ fetch("../componentes/navbar/navbar.html")
   .then((response) => response.text()) // convierte la respuesta a texto
   .then((data) => {
     // Coloca el contenido del navbar en el contenedor correspondiente
-
     document.getElementById("nav-reseñas-container").innerHTML = data;
 
     // Agrega un event listener al enlace "Cerrar Sesión"
     document
       .getElementById("cerrar-sesion")
-      .addEventListener("click", function (event) {
-        event.preventDefault(); // Evita que el enlace cambie la URL
+      .addEventListener("click", function (e) {
+        e.preventDefault(); // Evita que el enlace cambie la URL
 
-        // Ejecuta la función cerrarSesion()
-        cerrarSesion();
+        Cookies.remove("token");
+        window.location.href = "/";
       });
 
-    const searchButton = document.getElementById("searchButton");
+    // Agrega un event listener al enlace "Buscar"
 
-    searchButton.addEventListener("click", function (event) {
-      event.preventDefault();
+    document
+      .getElementById("searchButton")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        let search = document.getElementById("searchInput").value;
 
-      console.log("click");
-    });
+        window.location.href = `/pages/peliculas/buscar.html?page=1&name=${search}`;
+      });
   })
   .catch((error) => {
     console.error("Error al cargar el navbar:", error);
   });
-
-function cerrarSesion() {
-  Cookies.remove("token");
-  window.location.href = "/";
-}

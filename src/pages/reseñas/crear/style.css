@@ -1,28 +1,28 @@
 /*ESTILOS PARA MOSTRAR OPCIONES*/
-#reviewsSection{
-    display: none;
+#reviewsSection {
+  display: none;
 }
 .card movie-card {
-    width: 120px;
+  width: 120px;
 }
 
 .active-btn {
-    background-color: #4f555c !important;
+  background-color: #4f555c !important;
 }
 
 .movie-card {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /*Estilos para Seccion de peliculas*/
-#posterPathMovies{
-    width: 150px;
+#posterPathMovies {
+  width: 150px;
 }
 /*Estilos para Seccion de reseñas*/
-#posterPathReseña{
-    width: 100%;
+#posterPathReseña {
+  width: 100%;
 }
 .pagination .active {
-    background-color: #007bff;
-    color: #fff;
-  }
+  background-color: #007bff;
+  color: #fff;
+}

@@ -9,6 +9,8 @@ import { colorearEstrellas } from "./detallereseña.stars";
 
 const errorContainer = document.getElementById("error-de-extraccion-reseñas");
 const reseñasCards = document.getElementById("reviews-Cards");
+const sinComentarios = document.getElementById("sinComentarios");
+var impreso = false;
 
 window.addEventListener("DOMContentLoaded", async () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -59,37 +61,40 @@ window.addEventListener("DOMContentLoaded", async () => {
     } else {
       contenedorComentarios.style.display = "block"; // Muestra el contenedor
       verComentariosBtn.textContent = "Ocultar comentarios"; // Cambia el texto del botón
-    }
+      if (impreso === false) {
+        try {
+          const comentariosCards = document.getElementById("card-comentarios");
+          //IMPRIMIR COMENTARIOS
+          console.log("si entra");
+          const responseComents = await getComentarios(reviewId);
+          const { comentarios, totalResults } = responseComents.data;
+          console.log("responseComents.data", comentarios, totalResults);
+          const dataComents = comentarios.comentarios;
 
-    try {
-      const comentariosCards = document.getElementById("card-comentarios");
-      //IMPRIMIR COMENTARIOS
-      const responseComents = await getComentarios(reviewId);
-      const { comentarios, totalResults } = responseComents.data;
-      console.log("responseComents.data", comentarios, totalResults);
-      const dataComents = comentarios.comentarios;
-      dataComents.forEach((comentario) => {
-        //IMPRIMIR RESULTADOS
-        const listComents = document.createElement("div");
-        listComents.classList.add("card", "mb-3", "m-4");
-        listComents.innerHTML = imprimirComentarios(
-          comentario,
-          comentario.usuario
-        );
-        comentariosCards.append(listComents);
-      });
-    } catch (error) {
-      const errorHTML = document.createElement("div");
-      errorHTML.innerHTML = Error(error.message);
-      errorContainer.append(errorHTML);
+          dataComents.forEach((comentario) => {
+            //IMPRIMIR RESULTADOS
+            const listComents = document.createElement("div");
+            listComents.classList.add("card", "mb-3", "m-4");
+            listComents.innerHTML = imprimirComentarios(
+              comentario,
+              comentario.usuario
+            );
+            comentariosCards.append(listComents);
+          });
+          const exito = document.createElement("div");
+          exito.innerHTML = `<div class="alert alert-success text-center" role="alert">
+            RESULTADOS MOSTRADOS EXITOSAMENTE!
+          </div>`;
+          comentariosCards.prepend(exito);
+        } catch (error) {
+          const errorHTML = document.createElement("div");
+          errorHTML.innerHTML = `<div class="alert alert-warning text-center" role="alert">
+            No hay comentarios para mostrar!
+          </div>`;
+          sinComentarios.append(errorHTML);
+        }
+        impreso = true;
+      }
     }
   });
 });
-/**
- *
- *
- * AQUI YA ES PARA LOS COMENTARIOS
- *
- *
- *
- */

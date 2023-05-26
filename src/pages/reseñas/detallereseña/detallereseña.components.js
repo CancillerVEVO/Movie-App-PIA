@@ -21,7 +21,9 @@ function ImprimirReseñas(
                     <div id="estrellas-reseña-${id}" class="my-3" value="${calificacion}"></div>
                   </div>
                   <p class="card-text text-justify">${contenido}</p>
-                  <button class="btn btn-warning ">FAVORITOS</button>
+                  <div class="d-flex justify-content-end align-items-end">
+                    <button class="btn btn-warning">FAVORITOS</button>
+                  </div>
                 </div>
               </div>
             </div>

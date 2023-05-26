@@ -41,50 +41,54 @@ window.addEventListener("DOMContentLoaded", async () => {
     errorHTML.innerHTML = Error(error.message);
     errorContainer.append(errorHTML);
   }
-  try {
-    const comentariosCards = document.getElementById("card-comentarios");
-    //IMPRIMIR COMENTARIOS
-    const responseComents = await getComentarios(reviewId);
-    const { comentarios, totalResults } = responseComents.data;
-    //console.log("responseComents.data", comentarios, totalResults);
-    const dataComents = comentarios.comentarios;
-    dataComents.forEach((comentario) => {
-      //IMPRIMIR RESULTADOS
-      const listComents = document.createElement("div");
-      listComents.classList.add("card", "mb-3", "m-4");
-      listComents.innerHTML = imprimirComentarios(
-        comentario,
-        comentario.usuario
-      );
-      comentariosCards.append(listComents);
-    });
-  } catch (error) {
-    const errorHTML = document.createElement("div");
-    errorHTML.innerHTML = Error(error.message);
-    errorContainer.append(errorHTML);
-  }
-});
-// Obtenemos referencias a los elementos necesarios
-const verComentariosBtn = document.getElementById("verComentariosBtn");
-const contenedorComentarios = document.getElementById("contenedor-comentarios");
 
-// Agregamos un evento clic al botón "Ver comentarios"
-verComentariosBtn.addEventListener("click", function (event) {
-  event.preventDefault(); // Evita que el enlace se siga al href
+  // Obtenemos referencias a los elementos necesarios
+  const verComentariosBtn = document.getElementById("verComentariosBtn");
+  const contenedorComentarios = document.getElementById(
+    "contenedor-comentarios"
+  );
 
-  // Si el contenedor de comentarios está visible
-  if (contenedorComentarios.style.display === "block") {
-    contenedorComentarios.style.display = "none"; // Oculta el contenedor
-    verComentariosBtn.textContent = "Ver comentarios"; // Cambia el texto del botón
-  } else {
-    contenedorComentarios.style.display = "block"; // Muestra el contenedor
-    verComentariosBtn.textContent = "Ocultar comentarios"; // Cambia el texto del botón
-  }
+  // Agregamos un evento clic al botón "Ver comentarios"
+  verComentariosBtn.addEventListener("click", async function (event) {
+    event.preventDefault(); // Evita que el enlace se siga al href
+
+    // Si el contenedor de comentarios está visible
+    if (contenedorComentarios.style.display === "block") {
+      contenedorComentarios.style.display = "none"; // Oculta el contenedor
+      verComentariosBtn.textContent = "Ver comentarios"; // Cambia el texto del botón
+    } else {
+      contenedorComentarios.style.display = "block"; // Muestra el contenedor
+      verComentariosBtn.textContent = "Ocultar comentarios"; // Cambia el texto del botón
+    }
+
+    try {
+      const comentariosCards = document.getElementById("card-comentarios");
+      //IMPRIMIR COMENTARIOS
+      const responseComents = await getComentarios(reviewId);
+      const { comentarios, totalResults } = responseComents.data;
+      console.log("responseComents.data", comentarios, totalResults);
+      const dataComents = comentarios.comentarios;
+      dataComents.forEach((comentario) => {
+        //IMPRIMIR RESULTADOS
+        const listComents = document.createElement("div");
+        listComents.classList.add("card", "mb-3", "m-4");
+        listComents.innerHTML = imprimirComentarios(
+          comentario,
+          comentario.usuario
+        );
+        comentariosCards.append(listComents);
+      });
+    } catch (error) {
+      const errorHTML = document.createElement("div");
+      errorHTML.innerHTML = Error(error.message);
+      errorContainer.append(errorHTML);
+    }
+  });
 });
 /**
  *
  *
- * AQUI YA ES PARA LAS RESPUESTAS
+ * AQUI YA ES PARA LOS COMENTARIOS
  *
  *
  *

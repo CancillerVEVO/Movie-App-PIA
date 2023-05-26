@@ -10,6 +10,7 @@ import { colorearEstrellas } from "./detallepelicula.stars";
 const errorContainer = document.getElementById("error-de-extraccion-peliculas");
 const moviesCards = document.getElementById("movies-Cards");
 const reseñasCards = document.getElementById("reviews-Cards");
+const escribirBtn = document.getElementById("escribirBtn");
 
 window.addEventListener("DOMContentLoaded", async () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -77,4 +78,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     errorHTML.innerHTML = Error(error.message);
     errorContainer.append(errorHTML);
   }
+});
+
+escribirBtn.addEventListener("click", () => {
+  const queryParams = new URLSearchParams(window.location.search);
+  let movieId = parseInt(queryParams.get("movieId"));
+  window.location.href = `/pages/reseñas/crear.html?movieId=${movieId}`;
 });

@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       movieId
     );
     const movieList = document.createElement("div");
-    movieList.classList.add("col-md-3");
+    movieList.classList.add("col-md-10", "m-5");
     movieList.innerHTML = ImprimirPelicula({
       id,
       title,
@@ -55,6 +55,7 @@ form.addEventListener("submit", async (event) => {
     alert(`Reseña "${reseñaTitulo}" creada con el exito`);
 
     window.location.href = `/pages/reseñas/detallereseña.html?reviewId=${reseñaId}`;
+    form.reset();
   } catch (error) {
     const errorHTML = document.createElement("div");
     errorHTML.innerHTML = Error(error.message);

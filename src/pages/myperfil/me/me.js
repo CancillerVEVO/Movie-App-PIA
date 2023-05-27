@@ -1,5 +1,5 @@
 import { getMyperfil } from "./me.api";
-import { Error, componentMe } from "./me.components";
+import { Error, componentMe, misReseñas } from "./me.components";
 
 window.addEventListener("DOMContentLoaded", async () => {
   const errorContainer = document.getElementById("error-de-extraccion-perfil");
@@ -17,6 +17,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     const errorHTML = document.createElement("div");
     errorHTML.innerHTML = Error(error.message);
-    errorContainer.append(errorHTML);
+    errorContainer.prepend(errorHTML);
   }
 });

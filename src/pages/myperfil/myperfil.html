@@ -42,36 +42,42 @@
       class="container border border-secondary my-4"
     >
       <div class="container">
-        <div class="row">
-          <div id="perfil-container">
-            <!-- AQUI SE IMPRIME EL PERFIL -->
-            <!-- <div class="card border">
-              <div class="card-header">
-                Mi Perfil
-                <a href="#" class="float-right">
-                  <i class="bi bi-gear-fill"></i> Configuración de Perfil
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Nombre de Usuario</h5>
-                <p class="card-text">Biografía del usuario</p>
-              </div>
-            </div> -->
-          </div>
-          <div class="col-md-7 my-3">
-            <div class="border">
-              <h4 class="mt-2 ml-3 pb-2">Mis reseñas</h4>
-              <!-- Sección de Reseñas -->
-              <div id="reviewsSection">
-                <div id="error-de-extraccion-reseñas" class="container"></div>
-                <div
-                  id="reviews-Cards"
-                  class="row d-flex justify-content-center"
-                >
-                  <!-- INICIO DE CAR DE RESEÑAS -->
-                  <!-- FIN DE CAR DE RESEÑAS -->
+        <div id="perfil-container" class="row">
+          <!-- Sección de Reseñas -->
+          <div id="reviewsSection" class="col-md-7 my-3 border border-dark p-4">
+            <div id="error-de-extraccion-reseñas" class="container"></div>
+            <h4 class="h4">Mis reseñas</h4>
+            <div id="reviews-Cards" class="row my-3">
+              <!-- INICIO DE CAR DE RESEÑAS -->
+              <div class="card mb-7 my-5 d-flex align-items-center">
+                <div class="row g-0">
+                  <div class="col-md-3">
+                    <img
+                      id="posterPathReseña"
+                      src="https://image.tmdb.org/t/p/original/n4SexGGQzI26E269tfpa80MZaGV.jpg"
+                      class="img-fluid rounded-start m-3"
+                      alt="${id}"
+                      style="width: 70%"
+                    />
+                  </div>
+                  <div class="col-md-9">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-end mb-3">
+                        <button class="btn btn-outline-danger me-2">
+                          <i class="bi bi-trash-fill"></i>
+                        </button>
+                        <button class="btn btn-outline-primary">
+                          <i class="bi bi-pencil-fill"></i>
+                        </button>
+                      </div>
+                      <h4 class="card-subtitle my-3 text-center">${titulo}</h4>
+                      <p class="card-text text-justify">${contenido}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <!-- FIN DE CAR DE RESEÑAS -->
             </div>
           </div>
         </div>
@@ -94,6 +100,9 @@
 
     <!-- JS para lista de reseñas 
     <script type="module" src="listareseñas/listareseñas.js"></script>-->
+
+    <!-- JS para lista de reseñas -->
+    <script type="module" src="me/me.js"></script>
 
     <!-- EVENTOS del navbar-->
     <script type="module" src="../componentes/navbar/navbar.events.js"></script>

@@ -5,7 +5,7 @@ function componentMe({ id, nombre, biografia }) {
         <div class="card border">
         <div class="card-header">
             Mi Perfil
-            <button class="btn btn-primary float-right" onclick="location.href='?id=${id}'">
+            <button class="btn btn-outline-secondary float-right" onclick="location.href='?id=${id}'">
             <i class="bi bi-gear-fill"></i> Configuración de Perfil
             </button>
         </div>
@@ -19,7 +19,7 @@ function componentMe({ id, nombre, biografia }) {
 }
 
 function misReseñas({ id, titulo, contenido, pelicula }) {
-  return ` <div class="card mb-7 my-5 d-flex align-items-center">
+  return ` <div class="card mb-7 my-2 d-flex align-items-center">
     <div class="row g-0">
       <div class="col-md-3">
         <img

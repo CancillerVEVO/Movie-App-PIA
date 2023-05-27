@@ -35,6 +35,10 @@
   <body>
     <!--NAVBAR PANTALLA DE INICIO-->
     <div id="nav-reseñas-container"></div>
+    <!--BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
+    <button class="btn m-4" onclick="goBack()">
+      <i class="bi bi-arrow-left"></i> Volver
+    </button>
 
     <!--CONTENIDO-->
     <div
@@ -43,8 +47,9 @@
     >
       <div class="row">
         <div class="col-md-5">
+          <h3 class="h3 text-center mt-3">Perfil</h3>
           <div class="row">
-            <div class="col-md-12 border">
+            <div class="col-md-12 mt-0">
               <div id="perfil-container"></div>
             </div>
           </div>
@@ -56,9 +61,9 @@
             </div>
           </div>
         </div>
-        <div id="reviewsSection" class="col-md-7 my-3 border border-dark p-4">
+        <div id="reviewsSection" class="col-md-7 p-4">
           <div id="error-de-extraccion-reseñas" class="container"></div>
-          <h4 class="h4">Mis reseñas</h4>
+          <h3 class="h3 text-center">Mis reseñas</h3>
           <div id="reviews-Cards">
             <!-- INICIO DE CAR DE RESEÑAS -->
 
@@ -80,6 +85,8 @@
 
     <!-- EVENTOS del navbar-->
     <script type="module" src="../componentes/navbar/navbar.events.js"></script>
+    <!--SCRIPT BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
+    <script src="../componentes/volver/volver.js"></script>
     <!--SCRIPTS DE footer-->
     <script type="module" src="../componentes/footer/footer.js"></script>
 

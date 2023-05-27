@@ -40,68 +40,30 @@
       <i class="bi bi-arrow-left"></i> Volver
     </button>
 
-    <!--COMENTARIO PRINCIPAL-->
-    <div class="container mt-4 mb-4">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="border p-4">
-            <h3 class="text-center">Título Comentario Original</h3>
-            <h4 class="text-center">Usuario</h4>
-            <h4 class="text-center">ID</h4>
-            <div class="container">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                cursus fringilla mauris, et lobortis nisl. Phasellus ac quam nec
-                dui accumsan ultricies. Proin tristique diam sed risus cursus,
-                ut convallis justo blandit. Morbi sit amet justo leo.
-                Pellentesque habitant morbi tristique senectus et netus et
-                malesuada fames ac turpis egestas. Sed gravida efficitur erat,
-                vel commodo ligula varius quis. Fusce venenatis magna non lorem
-                auctor laoreet.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--SUS HIJOS-->
-    <div class="container mt-4 mb-4">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="border p-4">
-            <!--DATOS-->
-            <h4 class="text-center">Usuario</h4>
-            <h4 class="text-center">ID</h4>
-            <div class="container">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                cursus fringilla mauris, et lobortis nisl. Phasellus ac quam nec
-                dui accumsan ultricies. Proin tristique diam sed risus cursus,
-                ut convallis justo blandit. Morbi sit amet justo leo.
-                Pellentesque habitant morbi tristique senectus et netus et
-                malesuada fames ac turpis egestas. Sed gravida efficitur erat,
-                vel commodo ligula varius quis. Fusce venenatis magna non lorem
-                auctor laoreet.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--CONTENIDO-->
     <div
       id="principal-container"
       class="container border border-secondary my-4"
-    ></div>
+    >
+      <!-- CONTENEDOR DE COMENTARIOS -->
+      <div id="card-comentarios">
+        <!-- Dentro de aqui se van a imprimir los comenterarios -->
+      </div>
+      <!-- CONTENEDOR DE RESPUESTAS -->
+      <div id="container-respuestas">
+        <div class="row justify-content-center">
+          <!-- Dentro de aqui se van a imprimir las -->
+        </div>
+      </div>
+    </div>
+    <!--FIN CONTENEDOR PRINCIPAL-->
 
     <!-- Contenedor para el footer -->
     <div id="footer-container"></div>
 
     <!--SCRIPT BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
     <script src="../componentes/volver/volver.js"></script>
-
+    <!--SCRIPTS DE DETALLERESPUESTA-->
+    <script type="module" src="./detallerespuesta/detallerespuesta.js"></script>
     <!-- EVENTOS del navbar-->
     <script type="module" src="../componentes/navbar/navbar.events.js"></script>
     <!--SCRIPTS DE footer-->

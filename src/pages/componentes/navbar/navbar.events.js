@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+//import { getUsuario } from "../../myperfil/me/me.api.js";
 
 // Utiliza fetch para obtener el contenido del archivo del navbar
 fetch("../componentes/navbar/navbar.html")
@@ -6,7 +7,16 @@ fetch("../componentes/navbar/navbar.html")
   .then((data) => {
     // Coloca el contenido del navbar en el contenedor correspondiente
     document.getElementById("nav-reseñas-container").innerHTML = data;
+    //Agregar nombre de usuario
 
+    // Agrega un event listener al enlace "Mi perfil"
+    document
+      .getElementById("mi-perfil")
+      .addEventListener("click", function (e) {
+        e.preventDefault(); // Evita que el enlace cambie la URL
+
+        window.location.href = "../myperfil/myperfil.html";
+      });
     // Agrega un event listener al enlace "Cerrar Sesión"
     document
       .getElementById("cerrar-sesion")

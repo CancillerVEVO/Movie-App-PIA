@@ -5,7 +5,6 @@ import {
   imprimirComentarios,
 } from "./detallereseña.components";
 import { colorearEstrellas } from "./detallereseña.stars";
-//import { Pagination } from "../../componentes/Pagination";
 
 const errorContainer = document.getElementById("error-de-extraccion-reseñas");
 const reseñasCards = document.getElementById("reviews-Cards");

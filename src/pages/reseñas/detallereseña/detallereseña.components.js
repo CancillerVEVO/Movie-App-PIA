@@ -44,7 +44,7 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
     <button id="escribirRespuestaBtn-${id}" class="btn btn-primary">
       Escribir comentario
     </button>-->
-    <a href="#" class="btn btn-primary">Ver respuestas</a>
+    <a href="detallerespuesta.html?commentId=${id}" class="btn btn-primary">Ver respuestas</a>
     <div id="formulario-respuesta-${id}" class=" mt-4">
       <form>
         <div class="form-group">

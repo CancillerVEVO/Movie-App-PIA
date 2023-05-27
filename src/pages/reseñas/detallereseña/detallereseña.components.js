@@ -1,10 +1,12 @@
+import format from "date-fns/format";
 function ImprimirReseñas(
   { id, titulo, contenido, calificacion, fechaCreacion, autor },
   posterPath
 ) {
+  const fechaFormateada = format(new Date(fechaCreacion), "MMMM/d/yyyy");
   return `
             <h5 class="card-title mx-3 mt-3">${autor.nombre}</h5>
-          <p class="card-text mx-3">Hace ${fechaCreacion}</p>
+          <p class="card-text mx-3">Fecha Creacion:  ${fechaFormateada}</p>
           <div class="card mb-3 d-flex align-items-center">
             <div class="row g-0">
               <div class="col-md-3">
@@ -31,11 +33,12 @@ function ImprimirReseñas(
           `;
 }
 function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
+  const fechaFormateada = format(new Date(fechaCreado), "MMMM/d/yyyy");
   return `
     <div class="card-body">
     <h5 class="card-title">${usuario.nombre}</h5>
     <h6 class="card-subtitle mb-2 text-muted">ID de Comentario: ${id}</h6>
-    <p class="card-text">Fecha: ${fechaCreado}</p>
+    <p class="card-text">Fecha: ${fechaFormateada}</p>
     <p class="card-text">
       ${contenido}
     </p>

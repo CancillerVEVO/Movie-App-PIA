@@ -1,3 +1,4 @@
+import format from "date-fns/format";
 function componentMe({ id, nombre, biografia }) {
   if (!biografia) biografia = "No hay biografía disponible";
   return `
@@ -17,13 +18,13 @@ function componentMe({ id, nombre, biografia }) {
           `;
 }
 
-function misReseñas({ id, titulo, contenido, calificacion }) {
+function misReseñas({ id, titulo, contenido, pelicula }) {
   return ` <div class="card mb-7 my-5 d-flex align-items-center">
     <div class="row g-0">
       <div class="col-md-3">
         <img
           id="posterPathReseña"
-          src="https://image.tmdb.org/t/p/original/n4SexGGQzI26E269tfpa80MZaGV.jpg"
+          src="${pelicula.posterPath}"
           class="img-fluid rounded-start m-3"
           alt="${id}"
           style="width: 70%"
@@ -35,8 +36,8 @@ function misReseñas({ id, titulo, contenido, calificacion }) {
             <button class="btn btn-outline-danger me-2">
               <i class="bi bi-trash-fill"></i>
             </button>
-            <button class="btn btn-outline-primary">
-              <i class="bi bi-pencil-fill"></i>
+            <button class="btn btn-outline-primary" onclick="window.location.href='myperfil.html#?reviewId=${id}'">
+            <i class="bi bi-pencil-fill"></i>
             </button>
           </div>
           <h4 class="card-subtitle my-3 text-center">${titulo}</h4>
@@ -46,10 +47,48 @@ function misReseñas({ id, titulo, contenido, calificacion }) {
     </div>
   </div>`;
 }
+function ImprimirFavoritos(
+  { id, titulo, contenido, calificacion, fechaCreacion, autor },
+  posterPath
+) {
+  const fechaFormateada = format(new Date(fechaCreacion), "MMMM/d/yyyy");
+  return `
+        <div class="card mb-3 d-flex align-items-center">
+        <h5 class="card-title mx-3 mt-3">${autor.nombre}</h5>
+        <p class="card-text mx-3">Fecha Creacion: ${fechaFormateada}</p>
+        <div class="row g-0">
+            <div class="col-md-3">
+            <img
+                id="posterPathReseña"
+                src="${posterPath}"
+                class="img-fluid rounded-start ml-2 mt-3"
+                alt="${id}"
+            />
+            </div>
+            <div class="col-md-9">
+            <div class="card-body">
+                <h6 class="card-subtitle my-3 text-center">${titulo}</h4>
+                <div
+                id="cal-reseña-${id}"
+                class="d-flex align-items-center"
+                >
+                <div
+                    id="estrellas-reseña-${id}"
+                    class="my-3"
+                    value="${calificacion}"
+                ></div>
+                </div>
+                <p class="card-text text-justify">${contenido}</p>
+            </div>
+            </div>
+        </div>
+        </div>
+            `;
+}
 function Error(message) {
   return `
             <h4>ERROR</h4>
               <p>${message}</p>
           `;
 }
-export { Error, componentMe, misReseñas };
+export { Error, componentMe, misReseñas, ImprimirFavoritos };

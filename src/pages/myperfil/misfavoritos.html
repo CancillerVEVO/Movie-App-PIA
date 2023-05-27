@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Perfil</title>
+    <title>Mis favoritos</title>
     <!--LINKS DE ESTILOS
     <link rel="stylesheet" href="listareseñas/listareseñas.css" />-->
     <!--BS ICONS-->
@@ -35,36 +35,19 @@
   <body>
     <!--NAVBAR PANTALLA DE INICIO-->
     <div id="nav-reseñas-container"></div>
-
+    <!--BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
+    <button class="btn m-4" onclick="goBack()">
+      <i class="bi bi-arrow-left"></i> Volver
+    </button>
     <!--CONTENIDO-->
     <div
       id="principal-container"
       class="container border border-secondary my-4"
     >
-      <div class="row">
-        <div class="col-md-5">
-          <div class="row">
-            <div class="col-md-12 border">
-              <div id="perfil-container"></div>
-            </div>
-          </div>
-          <div class="row my-3 p-4">
-            <div class="text-center">
-              <a href="misfavoritos.html" class="btn btn-primary"
-                >Ir a Mis Favoritos</a
-              >
-            </div>
-          </div>
-        </div>
-        <div id="reviewsSection" class="col-md-7 my-3 border border-dark p-4">
-          <div id="error-de-extraccion-reseñas" class="container"></div>
-          <h4 class="h4">Mis reseñas</h4>
-          <div id="reviews-Cards">
-            <!-- INICIO DE CAR DE RESEÑAS -->
-
-            <!-- FIN DE CAR DE RESEÑAS -->
-          </div>
-        </div>
+      <div id="favoritosSection" class="row my-2 p-4">
+        <h1 class="h1 text-center">MIS RESEÑAS FAVORITAS</h1>
+        <div id="error-de-extraccion-favoritos" class="container"></div>
+        <div id="favoritos-Cards"></div>
       </div>
     </div>
 
@@ -76,10 +59,12 @@
     <div id="footer-container"></div>
 
     <!-- JS para lista de reseñas -->
-    <script type="module" src="me/me.js"></script>
+    <script type="module" src="misfavoritos/misfavoritos.js"></script>
 
     <!-- EVENTOS del navbar-->
     <script type="module" src="../componentes/navbar/navbar.events.js"></script>
+    <!--SCRIPT BOTON PARA REGRESAR A LA PAGINA ANTERIOR-->
+    <script src="../componentes/volver/volver.js"></script>
     <!--SCRIPTS DE footer-->
     <script type="module" src="../componentes/footer/footer.js"></script>
 

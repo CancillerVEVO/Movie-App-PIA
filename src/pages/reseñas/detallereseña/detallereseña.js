@@ -5,6 +5,7 @@ import {
   imprimirComentarios,
 } from "./detallereseña.components";
 import { colorearEstrellas } from "./detallereseña.stars";
+import { imprimirFormularioComentario } from "../comentar/comentar";
 
 const errorContainer = document.getElementById("error-de-extraccion-reseñas");
 const reseñasCards = document.getElementById("reviews-Cards");
@@ -32,6 +33,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     reseña.classList.add("col-md-10");
     reseña.innerHTML = ImprimirReseñas(review, posterPath);
     reseñasCards.append(reseña);
+    imprimirFormularioComentario();
 
     // Obtener el valor del atributo "value" y aplicar la función colorearEstrellas
     const estrellasContainerId = `estrellas-reseña-${review.id}`; // Generar un ID único para cada contenedor de estrellas
@@ -97,3 +99,32 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
+
+// function imprimirFormularioComentario() {
+//   // Obtener el botón de "COMENTAR" y el formulario de comentarios
+//   const comentarBtn = document.getElementById("comentarBtn");
+//   const formularioComentario = document.getElementById("formularioComentario");
+
+//   // Agregar un controlador de eventos al botón de "COMENTAR"
+//   comentarBtn.addEventListener("click", function () {
+//     // Mostrar u ocultar el formulario de comentarios
+//     if (formularioComentario.style.display === "none") {
+//       formularioComentario.style.display = "block";
+//     } else {
+//       formularioComentario.style.display = "none";
+//     }
+//   });
+
+//   // Agregar un controlador de eventos al botón de "Cancelar"
+//   const cancelarBtn = document.getElementById("cancelarBtn");
+//   cancelarBtn.addEventListener("click", function () {
+//     // Ocultar el formulario de comentarios al hacer clic en "Cancelar"
+//     formularioComentario.style.display = "none";
+//   });
+
+//   // Agregar un controlador de eventos al botón de "Enviar" (solo para mostrar un mensaje en la consola)
+//   const enviarBtn = document.getElementById("enviarBtn");
+//   enviarBtn.addEventListener("click", function () {
+//     console.log("Comentario enviado");
+//   });
+// }

@@ -10,7 +10,8 @@ import {
   imprimirFormularioComentario,
   verFormRespuestas,
 } from "../comentar/comentar";
-import { tr } from "date-fns/locale";
+//import { tr } from "date-fns/locale";
+import { botonFavorito } from "../agregarfavoritos/agregarfavoritos";
 
 const errorContainer = document.getElementById("error-de-extraccion-reseñas");
 const reseñasCards = document.getElementById("reviews-Cards");
@@ -43,12 +44,12 @@ window.addEventListener("DOMContentLoaded", async () => {
     const responseFav = await getFavoritos();
     const favorites = responseFav.data.user.favoritos;
     // Obtener las ID de las reseñas
-    const reseñasIds = favorites.map((favorito) => favorito.reseña.id);
-    console.log("IDs de reviews favoritas", reseñasIds);
+    const favoritosIDs = favorites.map((favorito) => favorito.reseña.id);
+    console.log("IDs de reviews favoritas", favoritosIDs);
     // Determinar si la reseña actual es favorita
-    const isFavorite = reseñasIds.includes(reviewId);
-    console.log("ES FAVORITO:", isFavorite);
-    botonFavorito(isFavorite);
+    const estadoFavorito = favoritosIDs.includes(reviewId);
+    console.log("ES FAVORITO?:", estadoFavorito);
+    botonFavorito(estadoFavorito);
 
     // Obtener el valor del atributo "value" y aplicar la función colorearEstrellas
     const estrellasContainerId = `estrellas-reseña-${review.id}`; // Generar un ID único para cada contenedor de estrellas
@@ -115,34 +116,3 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
-//botoon de favoritos
-function botonFavorito(esFavoritoInicial) {
-  // Obtener referencia al botón de favoritos
-  const favoritosBtn = document.getElementById("favoritosBtn");
-  // Variable para almacenar el estado actual de favorito (true/false)
-  let esFavorito = esFavoritoInicial;
-
-  // Función para actualizar el estilo del botón según el estado de favorito
-  function actualizarEstilo() {
-    if (esFavorito) {
-      favoritosBtn.classList.remove("btn-outline-warning");
-      favoritosBtn.classList.add("btn-warning");
-    } else {
-      favoritosBtn.classList.remove("btn-warning");
-      favoritosBtn.classList.add("btn-outline-warning");
-    }
-  }
-
-  // Función para alternar el estado de favorito
-  function toggleFavorito() {
-    esFavorito = !esFavorito; // Cambiar el valor a su opuesto
-    actualizarEstilo();
-    // Aquí puedes realizar otras acciones según el estado de favorito
-  }
-
-  // Llamar a la función de actualización inicialmente para establecer el estilo
-  actualizarEstilo();
-
-  // Agregar el evento de clic al botón de favoritos
-  favoritosBtn.addEventListener("click", toggleFavorito);
-}

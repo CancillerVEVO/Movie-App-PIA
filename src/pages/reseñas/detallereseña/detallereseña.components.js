@@ -30,6 +30,24 @@ function ImprimirReseñas(
               </div>
             </div>
           </div>
+          <div class="container">
+          <div id="formularioComentario" style="display: none">
+            <div class="row">
+              <div class="col-md-6 mx-auto">
+                <div class="form-group">
+                  <label for="comentario">Comentario:</label>
+                  <textarea class="form-control" id="contenidoInput" rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <button id="enviarBtn" class="btn btn-success mr-2">Enviar</button>
+                <button id="cancelarBtn" class="btn btn-secondary">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
           `;
 }
 function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {

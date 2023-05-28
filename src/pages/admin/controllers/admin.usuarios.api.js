@@ -31,22 +31,9 @@ export async function createUsuario({
   }
 }
 
-export async function updateUsuario({
-  id,
-  nombre,
-  email,
-  password,
-  rol,
-  biografia,
-}) {
+export async function updateUsuario(usuario) {
   try {
-    const response = await movieApi.put(`/admin/users/${id}`, {
-      nombre,
-      email,
-      password,
-      rol,
-      biografia,
-    });
+    const response = await movieApi.put(`/admin/users/${usuario.id}`, usuario);
     return response.data.data;
   } catch (error) {
     throw getApiError(error);

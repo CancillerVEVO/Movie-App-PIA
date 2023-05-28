@@ -11,6 +11,8 @@ const userTable = document.getElementById("usuarios-table");
 const editarUsuarioModal = document.getElementById("editarUsuarioModal");
 const editarUsuarioForm = document.getElementById("editar-usuario-form");
 const crearUsuarioForm = document.getElementById("crear-usuario-form");
+const editarPassword = document.getElementById("editar-password");
+const passwordSwitch = document.getElementById("password-switch");
 
 document.addEventListener("DOMContentLoaded", async () => {
   const response = await getUsuarios();
@@ -100,6 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 editarUsuarioForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  let usuario;
   const id = editarUsuarioModal.dataset.id;
   const nombre = document.getElementById("editar-nombre").value;
   const email = document.getElementById("editar-email").value;
@@ -107,14 +110,24 @@ editarUsuarioForm.addEventListener("submit", async (e) => {
   const rol = document.getElementById("editar-rol").value;
   const biografia = document.getElementById("editar-biografia").value;
 
-  const usuario = {
-    id,
-    nombre,
-    email,
-    password,
-    rol,
-    biografia,
-  };
+  if (!passwordSwitch.checked) {
+    usuario = {
+      id,
+      nombre,
+      email,
+      rol,
+      biografia,
+    };
+  } else {
+    usuario = {
+      id,
+      nombre,
+      email,
+      password,
+      rol,
+      biografia,
+    };
+  }
 
   try {
     const response = await updateUsuario(usuario);
@@ -124,6 +137,7 @@ editarUsuarioForm.addEventListener("submit", async (e) => {
       `El usuario ${response.user.id} ha sido actualizado`,
       "success"
     ).then(() => {
+      editarPassword.value = "";
       window.location.reload();
     });
   } catch (error) {
@@ -170,5 +184,13 @@ crearUsuarioForm.addEventListener("submit", async (e) => {
     } else {
       Swal.fire("Error", error.message, "error");
     }
+  }
+});
+
+passwordSwitch.addEventListener("change", (e) => {
+  if (passwordSwitch.checked) {
+    editarPassword.disabled = false;
+  } else {
+    editarPassword.disabled = true;
   }
 });

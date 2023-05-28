@@ -5,7 +5,10 @@ import {
   imprimirComentarios,
 } from "./detallereseña.components";
 import { colorearEstrellas } from "./detallereseña.stars";
-import { imprimirFormularioComentario } from "../comentar/comentar";
+import {
+  imprimirFormularioComentario,
+  verFormRespuestas,
+} from "../comentar/comentar";
 
 const errorContainer = document.getElementById("error-de-extraccion-reseñas");
 const reseñasCards = document.getElementById("reviews-Cards");
@@ -66,10 +69,9 @@ window.addEventListener("DOMContentLoaded", async () => {
         try {
           const comentariosCards = document.getElementById("card-comentarios");
           //IMPRIMIR COMENTARIOS
-          console.log("si entra");
           const responseComents = await getComentarios(reviewId);
           const { comentarios, totalResults } = responseComents.data;
-          console.log("responseComents.data", comentarios, totalResults);
+          //  console.log("responseComents.data", comentarios, totalResults);
           const dataComents = comentarios.comentarios;
 
           dataComents.forEach((comentario) => {
@@ -82,6 +84,8 @@ window.addEventListener("DOMContentLoaded", async () => {
             );
             comentariosCards.append(listComents);
           });
+          //AQUI IRA LA FUNCION DE ABIR RESPUESTAS
+          verFormRespuestas();
           const exito = document.createElement("div");
           exito.innerHTML = `<div class="alert alert-success text-center" role="alert">
             RESULTADOS MOSTRADOS EXITOSAMENTE!
@@ -99,32 +103,3 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
-
-// function imprimirFormularioComentario() {
-//   // Obtener el botón de "COMENTAR" y el formulario de comentarios
-//   const comentarBtn = document.getElementById("comentarBtn");
-//   const formularioComentario = document.getElementById("formularioComentario");
-
-//   // Agregar un controlador de eventos al botón de "COMENTAR"
-//   comentarBtn.addEventListener("click", function () {
-//     // Mostrar u ocultar el formulario de comentarios
-//     if (formularioComentario.style.display === "none") {
-//       formularioComentario.style.display = "block";
-//     } else {
-//       formularioComentario.style.display = "none";
-//     }
-//   });
-
-//   // Agregar un controlador de eventos al botón de "Cancelar"
-//   const cancelarBtn = document.getElementById("cancelarBtn");
-//   cancelarBtn.addEventListener("click", function () {
-//     // Ocultar el formulario de comentarios al hacer clic en "Cancelar"
-//     formularioComentario.style.display = "none";
-//   });
-
-//   // Agregar un controlador de eventos al botón de "Enviar" (solo para mostrar un mensaje en la consola)
-//   const enviarBtn = document.getElementById("enviarBtn");
-//   enviarBtn.addEventListener("click", function () {
-//     console.log("Comentario enviado");
-//   });
-// }

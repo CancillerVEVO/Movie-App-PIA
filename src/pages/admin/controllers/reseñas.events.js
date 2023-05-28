@@ -15,9 +15,6 @@ const editarPublicacionForm = document.getElementById(
   "editar-publicacion-form"
 );
 const crearPublicacionForm = document.getElementById("crear-publicacion-form");
-const crearPublicacionModal = document.getElementById(
-  "crear-publicacion-modal"
-);
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {

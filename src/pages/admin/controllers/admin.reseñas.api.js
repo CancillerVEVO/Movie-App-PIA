@@ -19,11 +19,11 @@ export async function createReseña({
 }) {
   try {
     const response = await movieApi.post("/admin/reviews", {
-      usuario_id,
-      pelicula,
+      usuario_id: Number(usuario_id),
+      pelicula: Number(pelicula),
       titulo_critica,
       contenido,
-      calificacion,
+      calificacion: Number(calificacion),
     });
     return response.data.data;
   } catch (error) {
@@ -41,7 +41,7 @@ export async function updateReseña({
     const response = await movieApi.put(`/admin/reviews/${id}`, {
       titulo_critica,
       contenido,
-      calificacion,
+      calificacion: Number(calificacion),
     });
 
     return response.data.data;

@@ -10,10 +10,50 @@ export async function getReseñas() {
   }
 }
 
-export async function getComentarios() {
+export async function createReseña({
+  usuario_id,
+  pelicula,
+  titulo_critica,
+  contenido,
+  calificacion,
+}) {
   try {
-    const response = await movieApi.get("/admin/comments");
+    const response = await movieApi.post("/admin/reviews", {
+      usuario_id,
+      pelicula,
+      titulo_critica,
+      contenido,
+      calificacion,
+    });
     return response.data.data;
+  } catch (error) {
+    throw getApiError(error);
+  }
+}
+
+export async function updateReseña({
+  id,
+  titulo_critica,
+  contenido,
+  calificacion,
+}) {
+  try {
+    const response = await movieApi.put(`/admin/reviews/${id}`, {
+      titulo_critica,
+      contenido,
+      calificacion,
+    });
+
+    return response.data.data;
+  } catch (error) {
+    throw getApiError(error);
+  }
+}
+
+export async function deleteReseña(id) {
+  try {
+    const response = await movieApi.delete(`/admin/reviews/${id}`);
+    return response.data;
   } catch (error) {
     throw getApiError(error);
   }

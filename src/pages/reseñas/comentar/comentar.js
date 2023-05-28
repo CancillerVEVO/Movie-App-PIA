@@ -25,10 +25,6 @@ function imprimirFormularioComentario() {
   });
 
   // Agregar un controlador de eventos al botón de "Enviar" (solo para mostrar un mensaje en la consola)
-  const enviarBtn = document.getElementById("enviarBtn");
-  enviarBtn.addEventListener("click", function () {
-    console.log("Comentario enviado");
-  });
 
   function accionComentarios() {
     // Obtener el ID de la reseña de la URL
@@ -62,9 +58,16 @@ function imprimirFormularioComentario() {
 
       // Validar los datos del formulario
       if (contenido.length < 1) {
-        errorContainer.innerHTML = "El comentario no puede estar vacío";
+        errorContainer.innerHTML = `<div class="alert alert-danger text-center" role="alert">
+        ¡El comentario no puede estar vacío!
+      </div>;`;
         return;
+      } else {
+        errorContainer.innerHTML = `<div class="alert alert-success text-center" role="alert">
+        ¡Comentario agregado correctamente!
+      </div>`;
       }
+
       console.log("EL CONTENIDO ESCRITO ES: ", contenido);
       console.log("EL PADREID ESCRITO ES: ", comentarioPadreId);
       console.log("EL REVIEWID ESCRITO ES: ", reviewId);

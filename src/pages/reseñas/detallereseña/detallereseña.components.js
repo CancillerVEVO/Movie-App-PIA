@@ -30,8 +30,7 @@ function ImprimirReseñas(
               </div>
             </div>
           </div>
-          <div class="container">
-          <div id="formularioComentario" style="display: none">
+          <div id="formularioComentario" class="container" style="display: none">
             <div class="row">
               <div class="col-md-6 mx-auto">
                 <div class="form-group">
@@ -46,7 +45,6 @@ function ImprimirReseñas(
                 <button id="cancelarBtn" class="btn btn-danger">Cancelar</button>
               </div>
             </div>
-          </div>
         </div>
           `;
 }
@@ -60,33 +58,37 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
     <p class="card-text">
       ${contenido}
     </p>
-
-    <!-- BOTONES PARA COMENTAR 
-    <button id="escribirRespuestaBtn-${id}" class="btn btn-primary">
-      Escribir comentario
-    </button>-->
-    <a href="detallerespuesta.html?commentId=${id}" class="btn btn-primary">Ver respuestas</a>
-    <div id="formulario-respuesta-${id}" class=" mt-4">
-      <form>
+    <button class="responderBtn btn btn-primary" value="${id}">PRUEBA RESPONDER</button>
+    <a href="detallerespuesta.html?commentId=${id}" class="btn btn-dark">Ver respuestas</a>
+    <!-- form de respuestas -->
+    <div
+    id="formulario-respuesta${id}"
+    class="container my-2"
+    style="display: none"
+  >
+    <div class="row">
+      <div class="col-md-6">
         <div class="form-group">
+          <label for="respuesta">Responder:</label>
           <textarea
             class="form-control"
-            rows="3"
-            placeholder="Escribe tu respuesta aquí"
-          ></textarea>
+            id="respuestaInput${id}"
+            rows="2"
+          >${id}</textarea>
         </div>
-        <button id="enviarRespuestaBtn-${id}" type="submit" class="btn btn-success">
-          Enviar comentario
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <button id="enviarBtnRespuesta${id}" class="btn btn-success mr-2">
+          Enviar
         </button>
-        <button
-          id="cancelarBtn-${id}"
-          type="button"
-          class="btn btn-secondary"
-        >
+        <button id="cancelarBtnRespuesta${id}" class="btn btn-danger">
           Cancelar
         </button>
-      </form>
+      </div>
     </div>
+  </div>
   </div>    
     `;
 }

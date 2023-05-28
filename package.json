@@ -14,7 +14,9 @@
   "dependencies": {
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "datatables.net-dt": "^1.13.4",
     "date-fns": "^2.30.0",
-    "js-cookie": "^3.0.5"
+    "js-cookie": "^3.0.5",
+    "sweetalert2": "^11.7.5"
   }
 }

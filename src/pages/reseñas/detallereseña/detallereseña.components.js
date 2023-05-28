@@ -24,7 +24,8 @@ function ImprimirReseñas(
                   </div>
                   <p class="card-text text-justify">${contenido}</p>
                   <div class="d-flex justify-content-end align-items-end">
-                    <button class="btn btn-warning">FAVORITOS</button>
+                    <!--<button class="btn btn-warning">FAVORITOS</button> -->
+                    <button id="favoritosBtn" class="btn"><i class="bi bi-heart"></i></button>
                   </div>
                 </div>
               </div>
@@ -53,7 +54,6 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
   return `
     <div class="card-body">
     <h5 class="card-title">${usuario.nombre}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">ID de Comentario: ${id}</h6>
     <p class="card-text">Fecha: ${fechaFormateada}</p>
     <p class="card-text">
       ${contenido}
@@ -74,7 +74,7 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
             class="form-control"
             id="respuestaInput${id}"
             rows="2"
-          >${id}</textarea>
+          ></textarea>
         </div>
       </div>
     </div>

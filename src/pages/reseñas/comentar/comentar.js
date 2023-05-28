@@ -146,7 +146,7 @@ async function accionRespuesta(contenido, comentarioPadreId) {
   // Llamar a la API para comentar la reseña
   try {
     await comentarReseña(reviewId, parseInt(comentarioPadreId), contenido);
-    //window.location.reload(); // Recargar la página
+    window.location.reload(); // Recargar la página
   } catch (error) {
     alert(error.message);
   }

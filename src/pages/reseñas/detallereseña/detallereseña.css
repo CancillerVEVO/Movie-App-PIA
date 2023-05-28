@@ -1,0 +1,9 @@
+#favoritosBtn button {
+  background-color: gray;
+  color: white;
+}
+
+#favoritosBtn button.favorito {
+  background-color: yellow;
+  color: black;
+}

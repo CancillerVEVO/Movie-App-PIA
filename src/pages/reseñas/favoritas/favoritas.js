@@ -1,5 +1,5 @@
-import { getFavoritos } from "./misfavoritos.api";
-import { Error, ImprimirReseñas } from "./misfavoritos.components";
+import { getFavoritos } from "../../myperfil/misfavoritos/misfavoritos.api";
+import { Error } from "../../myperfil/misfavoritos/misfavoritos.components";
 
 const favoritosCards = document.getElementById("favoritos-Cards");
 

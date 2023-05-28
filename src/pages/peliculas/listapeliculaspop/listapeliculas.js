@@ -1,3 +1,4 @@
+import { getMe } from "../../../utils/session";
 import { Pagination } from "../../componentes/Pagination";
 import { getListaPeliculasPop } from "./listapeliculas.api";
 import { Error, ImprimirPeliculas } from "./listapeliculas.components";
@@ -6,6 +7,10 @@ const errorContainer = document.getElementById("error-de-extraccion-peliculas");
 const moviesCards = document.getElementById("movies-Cards");
 
 window.addEventListener("DOMContentLoaded", async () => {
+  const me = await getMe();
+  if (me.rol == "ADMIN") {
+    window.location.href = "../admin/index.html";
+  }
   const queryParams = new URLSearchParams(window.location.search);
   let currentPage = parseInt(queryParams.get("page")) || 1;
 

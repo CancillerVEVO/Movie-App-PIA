@@ -15,12 +15,12 @@ function botonFavorito(estadoFavorito) {
   if (esFavorito) {
     favoritosBtn.classList.remove("btn-outline-warning");
     favoritosBtn.classList.add("btn-warning");
-    console.log("SI ES FAVORIT:D", esFavorito);
+    // console.log("SI ES FAVORIT:D", esFavorito);
     eliminarFavorito();
   } else {
     favoritosBtn.classList.remove("btn-warning");
     favoritosBtn.classList.add("btn-outline-warning");
-    console.log("NO ES FAVORIT D:", esFavorito);
+    // console.log("NO ES FAVORIT D:", esFavorito);
     hacerFavorito();
   }
 

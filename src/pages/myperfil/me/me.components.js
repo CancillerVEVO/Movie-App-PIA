@@ -33,11 +33,13 @@ function misReseñas({ id, titulo, contenido, pelicula }) {
       <div class="col-md-9">
         <div class="card-body">
           <div class="d-flex justify-content-end mb-3">
-            <button class="btn btn-outline-danger me-2">
+            <button id="btnDelete" class="btn btn-outline-danger me-2" onclick="window.location.href='../reseñas/borrareseña.html?reviewId=${id}'">
               <i class="bi bi-trash-fill"></i>
+              Borrar
             </button>
-            <button class="btn btn-outline-primary" onclick="window.location.href='myperfil.html#?reviewId=${id}'">
+            <button id="btnUpdate" class="btn btn-outline-primary" onclick="window.location.href=../reseñas/editareseña.html?reviewId=${id}'">
             <i class="bi bi-pencil-fill"></i>
+            Editar
             </button>
           </div>
           <h4 class="card-subtitle my-3 text-center">${titulo}</h4>

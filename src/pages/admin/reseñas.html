@@ -1,112 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Post</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Publicaciones</title>
     <!--LINKS DE ESTILOS-->
-    <link rel="stylesheet" href="../style/estilo.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css"
+    />
+  </head>
+
+  <body>
     <!--NAVBAR ADMIN-->
+
     <nav class="navbar navbar-light bg-light">
-        <div class="d-flex align-items-center">
-          <a class="navbar-brand" href="./admin_main.html">
-            <span class="fas fa-arrow-left mr-2"></span>
-            <img src="./img/admin.jpg" alt="Icono de persona" width="30" height="30" class="rounded-circle mr-2">
-            <span>Admin Posts</span>
-          </a>
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand" href="./index.html">
+          <span class="fas fa-arrow-left mr-2"></span>
+          <img
+            src="./img/admin.jpg"
+            alt="Icono de persona"
+            width="30"
+            height="30"
+            class="rounded-circle mr-2"
+          />
+          <span>Admin Publicaciones</span>
+        </a>
+      </div>
+    </nav>
+
+    <br />
+    <center><h1>Publicaciones</h1></center>
+    <hr />
+
+    <!-- ========== Modal De crear publicacion ========== -->
+    <div
+      class="modal fade"
+      id="crear-publicacion-modal"
+      tabindex="-1"
+      aria-labelledby="crearPublicacionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="crearPublicacionModalLabel">
+              Crear publicación
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="crear-publicacion-form">
+              <div class="mb-3">
+                <label for="crear-usuario-id" class="form-label"
+                  >ID de usuario</label
+                >
+                <input
+                  type="number"
+                  min="1"
+                  class="form-control"
+                  id="crear-usuario-id"
+                  placeholder="Ingrese el ID de usuario"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="crear-pelicula-id" class="form-label"
+                  >ID de película</label
+                >
+                <input
+                  type="number"
+                  min="1"
+                  class="form-control"
+                  id="crear-pelicula-id"
+                  placeholder="Ingrese el ID de película"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="crear-titulo" class="form-label">Título</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="crear-titulo"
+                  placeholder="Ingrese el título"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="crear-contenido" class="form-label"
+                  >Contenido</label
+                >
+                <textarea
+                  class="form-control"
+                  id="crear-contenido"
+                  rows="3"
+                  placeholder="Ingrese el contenido"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="crear-calificacion" class="form-label"
+                  >Calificación</label
+                >
+                <select class="form-select" id="crear-calificacion" required>
+                  <option value="">Seleccione una calificación</option>
+                  <option value="1">1 ⭐️</option>
+                  <option value="2">2 ⭐️</option>
+                  <option value="3">3 ⭐️</option>
+                  <option value="4">4 ⭐️</option>
+                  <option value="5">5 ⭐️</option>
+                  <option value="6">6 ⭐️</option>
+                  <option value="7">7 ⭐️</option>
+                  <option value="8">8 ⭐️</option>
+                  <option value="9">9 ⭐️</option>
+                  <option value="10">10 ⭐️</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+          </div>
         </div>
-      </nav>
+      </div>
+    </div>
 
-      <br>
-<center><h1>MODIFICAR PUBLICACION</h1></center>
-    <hr>
+    <!-- ========== Modal De crear publicacion ========== -->
 
-    <!--DROPDOWN DE OPCIONES PARA FILTRAR-->
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
+    <!-- ========== Informacion ========== -->
 
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Filtrar opciones
+    <div class="container d-flex justify-content-center">
+      <p>
+        Encuentra los IDS de las películas
+        <a target="_blank" href="https://www.themoviedb.org/">AQUÍ</a>
+      </p>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#crear-publicacion-modal"
+      >
+        Crear usuario
+      </button>
+    </div>
+    <!-- ========== Informacion ========== -->
+
+    <!--TABLA DE USUARIOS-->
+
+    <div class="container">
+      <table
+        id="publicaciones-table"
+        class="table table-striped table-bordered"
+        style="width: 100%; white-space: nowrap; overflow-x: auto"
+      >
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>usuario_id</th>
+            <th>email</th>
+            <th>pelicula_id</th>
+            <th>titulo_critica</th>
+            <th>contenido</th>
+            <th>calificacion</th>
+            <th>fecha_creado</th>
+            <th>fecha_actualizado</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <!-- ========== Modal de editar publicaciones ========== -->
+    <div
+      class="modal fade"
+      id="editar-publicacion-modal"
+      tabindex="-1"
+      aria-labelledby="editarPublicacionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editarPublicacionModalLabel">
+              Editar publicación
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editar-publicacion-form">
+              <div class="mb-3">
+                <label for="editar-titulo" class="form-label">Título</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editar-titulo"
+                  placeholder="Ingrese el título"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editar-contenido" class="form-label"
+                  >Contenido</label
+                >
+                <textarea
+                  class="form-control"
+                  id="editar-contenido"
+                  rows="3"
+                  placeholder="Ingrese el contenido"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="editar-calificacion" class="form-label"
+                  >Calificación</label
+                >
+                <select class="form-select" id="editar-calificacion" required>
+                  <option value="">Seleccione una calificación</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Guardar cambios
               </button>
-              <div class="dropdown-menu" aria-labelledby="filterDropdown">
-                
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    
 
-    <!--BARRA DE BUSQUEDA-->
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar">
-              <div class="input-group-append">
-                <button class="btn btn-secondary" type="button">Buscar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+    <!-- ========== Modal de editar publicaciones ========== -->
+    <!--SCRIPTS DE BS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
-    <!--TABLA DE POSTS-->
-    <div class="container mt-4">
-      <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Seleccionar</th>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Usuario</th>
-                <th>Película</th>
-              </tr>
-            </thead>
-            <tbody id="tablaRegistros">
-              <tr>
-                <td><input type="checkbox" class="registroCheckbox"></td>
-                <td>1</td>
-                <td>Título del Post</td>
-                <td>Usuario</td>
-                <td>Película</td>
-              </tr>
-            </tbody>
-          </table>
-          <div>
-            <button class="btn btn-primary mr-2" id="btnAgregar">Agregar</button>
-            <button class="btn btn-danger mr-2" id="btnBorrar">Borrar</button>
-            <button class="btn btn-success" id="btnEditar">Editar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-      
-
-<!--SCRIPTS DE BS-->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="./js/admin_post.js"></script>
-
-</body>
+    <script type="module" src="./controllers/reseñas.events.js"></script>
+  </body>
 </html>

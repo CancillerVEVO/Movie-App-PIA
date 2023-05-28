@@ -1,15 +1,6 @@
 import { movieApi } from "../../../api/movieApi";
 import { getApiError } from "../../../utils/getApiError";
 
-export async function getUsuarios() {
-  try {
-    const response = await movieApi.get("/admin/users");
-    return response.data.data;
-  } catch (error) {
-    throw getApiError(error);
-  }
-}
-
 export async function getReseñas() {
   try {
     const response = await movieApi.get("/admin/reviews");

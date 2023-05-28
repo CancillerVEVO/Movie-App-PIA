@@ -1,4 +1,9 @@
-import { getUsuarios } from "./admin.api";
+import {
+  getUsuarios,
+  createUsuario,
+  deleteUsuario,
+  updateUsuario,
+} from "./admin.usuarios.api";
 import DataTable from "datatables.net-dt";
 import Swal from "sweetalert2";
 
@@ -8,9 +13,9 @@ const editarUsuarioForm = document.getElementById("editar-usuario-form");
 const crearUsuarioForm = document.getElementById("crear-usuario-form");
 
 document.addEventListener("DOMContentLoaded", async () => {
-  let usuarios = await getUsuarios();
+  const response = await getUsuarios();
 
-  usuarios = usuarios.map((usuario) => {
+  const usuarios = response.users.map((usuario) => {
     return [
       usuario.id,
       usuario.nombre,
@@ -54,13 +59,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         showCancelButton: true,
         confirmButtonText: "Sí, eliminar",
         cancelButtonText: "Cancelar",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            "¡Eliminado!",
-            `El usuario con id ${id} ha sido eliminado`,
-            "success"
-          );
+      }).then(async (result) => {
+        try {
+          if (result.isConfirmed) {
+            await deleteUsuario(id);
+            Swal.fire("¡Eliminado!", "El usuario ha sido eliminado", "success");
+            dataTable.row(e.target.parentElement.parentElement).remove().draw();
+          }
+        } catch (error) {
+          Swal.fire("Error", error.message, "error");
         }
       });
     }
@@ -109,7 +116,19 @@ editarUsuarioForm.addEventListener("submit", async (e) => {
     biografia,
   };
 
-  console.log(usuario);
+  try {
+    const response = await updateUsuario(usuario);
+    $("#editarUsuarioModal").modal("hide");
+    Swal.fire(
+      "¡Actualizado!",
+      `El usuario ${response.user.id} ha sido actualizado`,
+      "success"
+    ).then(() => {
+      window.location.reload();
+    });
+  } catch (error) {
+    Swal.fire("Error", error.message, "error");
+  }
 });
 
 crearUsuarioForm.addEventListener("submit", async (e) => {
@@ -128,5 +147,28 @@ crearUsuarioForm.addEventListener("submit", async (e) => {
     biografia,
   };
 
-  console.log(usuario);
+  try {
+    const response = await createUsuario(usuario);
+    $("#crearUsuarioModal").modal("hide");
+    Swal.fire(
+      "¡Creado!",
+      `El usuario ${response.user.id} ha sido creado`,
+      "success"
+    ).then(() => {
+      window.location.reload();
+    });
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      const errorMessages = error.data.map((error) => {
+        return `<li>${error.msg}</li>`;
+      });
+      Swal.fire({
+        title: "Validation Error",
+        html: `<ul>${errorMessages.join("")}</ul>`,
+        icon: "error",
+      });
+    } else {
+      Swal.fire("Error", error.message, "error");
+    }
+  }
 });

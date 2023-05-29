@@ -1,3 +1,4 @@
+import format from "date-fns/format";
 function ImprimirPelicula({ id, title, posterPath, overview }) {
   return `<div class="card movie-card">
   <div class="row">
@@ -19,9 +20,10 @@ function ImprimirReseñas(
   { id, titulo, contenido, calificacion, fechaCreacion, autor },
   posterPath
 ) {
+  const fechaFormateada = format(new Date(fechaCreacion), "MMMM/d/yyyy");
   return `
           <h5 class="card-title mx-3 mt-3">${autor.nombre}</h5>
-        <p class="card-text mx-3">Hace ${fechaCreacion}</p>
+        <p class="card-text mx-3">Hace ${fechaFormateada}</p>
         <div class="card mb-3 d-flex align-items-center">
           <div class="row g-0">
             <div class="col-md-3">

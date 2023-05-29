@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await getMyperfil();
     const { user } = response.data;
-    //console.log(user);
+    //console.log(user.nombre);
 
     const perfil = document.createElement("div");
     perfil.classList.add("col-md-12", "my-3");

@@ -37,7 +37,7 @@ function misReseñas({ id, titulo, contenido, pelicula }) {
               <i class="bi bi-trash-fill"></i>
               Borrar
             </button>
-            <button id="btnUpdate" class="btn btn-outline-primary" onclick="window.location.href=../reseñas/editareseña.html?reviewId=${id}'">
+            <button id="btnUpdate" class="btn btn-outline-primary" onclick="window.location.href='../reseñas/editareseña.html?reviewId=${id}'">
             <i class="bi bi-pencil-fill"></i>
             Editar
             </button>

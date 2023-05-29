@@ -1,4 +1,4 @@
-import { getMyperfil, deleteReseña } from "./me.api";
+import { getMyperfil } from "./me.api";
 import { Error, componentMe, misReseñas } from "./me.components";
 
 window.addEventListener("DOMContentLoaded", async () => {

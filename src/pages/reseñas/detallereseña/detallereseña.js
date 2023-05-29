@@ -45,10 +45,10 @@ window.addEventListener("DOMContentLoaded", async () => {
     const favorites = responseFav.data.user.favoritos;
     // Obtener las ID de las reseñas
     const favoritosIDs = favorites.map((favorito) => favorito.reseña.id);
-    console.log("IDs de reviews favoritas", favoritosIDs);
+    // console.log("IDs de reviews favoritas", favoritosIDs);
     // Determinar si la reseña actual es favorita
     const estadoFavorito = favoritosIDs.includes(reviewId);
-    console.log("ES FAVORITO?:", estadoFavorito);
+    // console.log("ES FAVORITO?:", estadoFavorito);
     botonFavorito(estadoFavorito);
 
     // Obtener el valor del atributo "value" y aplicar la función colorearEstrellas

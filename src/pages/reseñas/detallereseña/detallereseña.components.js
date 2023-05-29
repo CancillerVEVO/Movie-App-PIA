@@ -58,7 +58,7 @@ function imprimirComentarios({ id, contenido, fechaCreado }, usuario) {
     <p class="card-text">
       ${contenido}
     </p>
-    <button class="responderBtn btn btn-primary" value="${id}">PRUEBA RESPONDER</button>
+    <button class="responderBtn btn btn-primary" value="${id}">RESPONDER</button>
     <a href="detallerespuesta.html?commentId=${id}" class="btn btn-dark">Ver respuestas</a>
     <!-- form de respuestas -->
     <div

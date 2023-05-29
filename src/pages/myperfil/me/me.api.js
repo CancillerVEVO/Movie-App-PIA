@@ -10,5 +10,14 @@ async function getMyperfil() {
     throw getApiError(error);
   }
 }
+//ELIMINAR RESEÑA
+async function deleteReseña(reviewId) {
+  try {
+    const response = await movieApi.delete(`review/${parseInt(reviewId)}`);
+    return response.data;
+  } catch (error) {
+    throw getApiError(error);
+  }
+}
 
-export { getMyperfil };
+export { getMyperfil, deleteReseña };

@@ -51,13 +51,58 @@
     <hr />
 
     <!--TABLA DE COMENTARIOS-->
-    <div class="container mt-4">
-      <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-          <table class="table"></table>
+    <div class="container">
+      <table
+        id="comentarios-table"
+        class="table table-striped table-bordered"
+        style="width: 100%; white-space: nowrap; overflow-x: auto"
+      ></table>
+    </div>
+
+    <!-- ========== Modal de editar comentario ========== -->
+    <div
+      class="modal fade"
+      id="editar-comentario-modal"
+      tabindex="-1"
+      aria-labelledby="editar-comentario-modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editar-comentario-modal">
+              Editar publicación
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editar-comentario-form">
+              <div class="mb-3">
+                <label for="editar-contenido" class="form-label"
+                  >Contenido</label
+                >
+                <textarea
+                  class="form-control"
+                  id="editar-contenido"
+                  rows="3"
+                  placeholder="Ingrese el contenido"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- ========== Modal de editar comentario ========== -->
 
     <!--SCRIPTS DE BS-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -67,5 +112,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <script type="module" src="./controllers/comentarios.events.js"></script>
   </body>
 </html>

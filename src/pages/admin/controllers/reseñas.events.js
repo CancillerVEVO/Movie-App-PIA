@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         },
       ],
       scrollX: true,
+      scrollY: "50vh",
 
       language: {
         url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json",

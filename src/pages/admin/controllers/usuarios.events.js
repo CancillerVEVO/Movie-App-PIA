@@ -5,6 +5,7 @@ import {
   updateUsuario,
 } from "./admin.usuarios.api";
 import DataTable from "datatables.net-dt";
+import { format } from "date-fns";
 import Swal from "sweetalert2";
 
 const userTable = document.getElementById("usuarios-table");
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     ],
 
     scrollX: true,
+    scrollY: "50vh",
 
     language: {
       url: "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json",

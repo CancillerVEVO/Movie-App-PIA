@@ -5,7 +5,7 @@ function componentMe({ id, nombre, biografia }) {
         <div class="card border">
         <div class="card-header">
             Mi Perfil
-            <button class="btn btn-outline-secondary float-right" onclick="location.href='configuracion.html">
+            <button class="btn btn-outline-secondary float-right" onclick="location.href='configuracion.html'">
             <i class="bi bi-gear-fill"></i> Configuración de Perfil
             </button>
         </div>
